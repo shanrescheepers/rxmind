@@ -1,0 +1,41 @@
+import UIKit
+
+struct StringConstants {
+    static let k: String = ""
+    static let kLblEmail: String = "Email"
+    static let kLblSteps: String = "Steps"
+    static let kLblLatest: String = "Latest"
+    static let kMsgYourPathToMi: String = "Your Path to Mindful Living"
+    static let kMsgDonTHaveAnA: String = "Don’t have an account?  Sign up"
+    static let kLblWelcomeShanr: String = "Welcome, Shanré"
+    static let kLblLastHrv: String = "Last HRV"
+    static let kLbl69: String = "69"
+    static let kMsgFindPeaceInT: String = "Find Peace in the Present"
+    static let kMsgMonitorYourHe: String = "Monitor Your Heart & Mind"
+    static let kMsgStepIntoAWor: String =
+        "Step into a world of tranquility and self-awareness with ReMind health tracking & insights. "
+    static let kLblLogIn: String = "Log in"
+    static let kLblTimeAsleep: String = "Time asleep"
+    static let kLblToday: String = "TODAY"
+    static let kLblWelcome: String = "Welcome,"
+    static let kHttpFail: String = "HTTP request failed"
+    static let kLblStressLevels: String = "Stress levels"
+    static let kMsgWeVeCombined: String =
+        "We’ve combined mindful practices with health tracking, sending gentle reminders to take mindful breaks."
+    static let kMsgHaveAnAccount: String = "Have an account?  Log in"
+    static let kUnableToFetch: String = "Unable to fetch data"
+    static let kLbl5555: String = "5555"
+    static let kLblSignUp: String = "Sign up"
+    static let kMsgWitnessYourGr: String =
+        "Witness your growth with progress tracking, celebrating every step forward on this journey to a mindful, heartful life."
+    static let kLblPassword: String = "Password"
+    static let kLblBpm: String = "BPM"
+    static let kLbl1745: String = "17:45"
+    static let kLblYesterday: String = "YESTERDAY"
+    static let kLblAverage: String = "Average"
+    static let kLbl612: String = "6:12"
+    static let kLblShanr: String = "Shanré"
+    static let kLblUsername: String = "Username"
+    static let kInvalidUrl: String = "Invalid URL"
+    static let kLbl23Aug2023: String = "23 Aug, 2023"
+}
