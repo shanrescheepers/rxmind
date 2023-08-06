@@ -4,13 +4,16 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var groupsevenText: String = ""
     @State private var groupsixText: String = ""
-    @State private var email: String = ""
+    @State private var email: String = "test@test.com"
     @State private var password: String = ""
     @State private var username: String = ""
     
     @State private var showSignUp = false
     @State private var showLogIn = false
     
+    @State var txtUsername = ""
+    @State var txtPassword = "1234"
+    @State private var isSecured: Bool = true
     
     var body: some View {
     
@@ -18,11 +21,6 @@ struct SignUpView: View {
             ZStack {
                     
                     Image("BG2").scaledToFit()
-                  
-                        
-                
-                        
-         
                     VStack(spacing:20)  {
                         
                       
@@ -32,21 +30,16 @@ struct SignUpView: View {
                                 .foregroundColor(ColorConstants.Gray300)
                                 .padding()
                                 .keyboardType(.emailAddress)
-                            
-                            
                         }
-                        
                         VStack{
-                            
-                                    TextField("Username", text: $password)
+//                            USERNAME
+                                    TextField("Username", text: $txtUsername)
                                         .padding()
                                         .background(Color.white)
                                         .cornerRadius(25)
                                  
                         }.padding(.trailing)
-                        
                         VStack {
-                            
                                     TextField("Email", text: $email)
                                         .padding()
                                         .background(Color.white)
@@ -54,12 +47,34 @@ struct SignUpView: View {
                                  
                         }.padding(.trailing)
                     
-                        VStack{
-                            
-                                    TextField("Password", text: $password)
-                                        .padding()
-                                        .background(Color.white)
-                                        .cornerRadius(25)
+                        HStack{
+//                            PASS
+                            if isSecured{
+                                Button(action: {
+                                    isSecured.toggle()
+                                }){
+                                    Image(systemName: "eye.slash").foregroundColor(.gray)
+                                }
+                                SecureField("Password", text: $txtPassword)
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(25)
+                             
+                            } else {
+                                Button(action: {
+                                    isSecured.toggle()
+                                }){
+                                    Image(systemName: "eye").foregroundColor(.gray)
+                                }
+                                TextField("Password", text: $txtPassword)
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(25)
+                            }
+                         
+                                   
                                  
                         }.padding(.trailing)
                   
