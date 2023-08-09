@@ -85,8 +85,8 @@ struct LoginView: View {
                                         .font(FontScheme
                                             .kAveriaSerifLibreRegular(size: getRelativeHeight(32.0)))
                                         .fontWeight(.regular)
-                                        .padding(.horizontal, getRelativeWidth(60.0))
-                                        .padding(.vertical, getRelativeHeight(14.0))
+                                        .padding(.horizontal, getRelativeWidth(70.0))
+                                        .padding(.vertical, getRelativeHeight(19.0))
                                         .foregroundColor(ColorConstants.Gray300)
                                         .minimumScaleFactor(0.5)
                                         .multilineTextAlignment(.leading)
@@ -95,7 +95,8 @@ struct LoginView: View {
                                 }
                             }).fullScreenCover(isPresented: $isHomeActive) {
                                 // Present the SignUpView as a full screen cover
-                                DashView()
+//                                DashView()
+                                HealthViewScreen()
                                 
                                     .navigationBarHidden(true)
                                 

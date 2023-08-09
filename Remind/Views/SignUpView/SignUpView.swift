@@ -126,7 +126,7 @@ struct SignUpView: View {
                                             .kAveriaSerifLibreRegular(size: getRelativeHeight(32.0)))
                                         .fontWeight(.regular)
                                         .padding(.horizontal, getRelativeWidth(60.0))
-                                        .padding(.vertical, getRelativeHeight(14.0))
+                                        .padding(.vertical, getRelativeHeight(19.0))
                                         .foregroundColor(ColorConstants.Gray300)
                                         .minimumScaleFactor(0.5)
                                         .multilineTextAlignment(.leading)

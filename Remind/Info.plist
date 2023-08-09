@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -24,6 +25,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Please allow us to access your health info for you to start using the ReMind App</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BarlowLight.ttf</string>
+		<string>AveriaSerifLibreRegular.ttf</string>
+		<string>BarlowThin.ttf</string>
+		<string>AveriaSerifLibreBold.ttf</string>
+		<string>BarlowRegular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -48,13 +59,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-<key>UIAppFonts</key>
-<array>
-<string>BarlowLight.ttf</string>
-<string>AveriaSerifLibreRegular.ttf</string>
-<string>BarlowThin.ttf</string>
-<string>AveriaSerifLibreBold.ttf</string>
-<string>BarlowRegular.ttf</string>
-</array>
 </dict>
 </plist>
