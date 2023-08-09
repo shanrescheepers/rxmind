@@ -1,51 +1,48 @@
-//
-//  ContentView.swift
-//  SlidingIntroScreen
-//
-//  Created by Federico on 18/03/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
-    private let dotAppearance = UIPageControl.appearance()
     @State private var isSignUpActive = false
     
     var body: some View {
-        TabView(selection: $pageIndex) {
-  
-            ForEach(pages) { page in
-                VStack {
-           
-                    OnboardingScreensView(page: page)
-        
-                    if page == pages.last {
-                        Button("Sign up!", action:{ isSignUpActive = true})
-                            
-                    } else {
-                        Button("next", action: incrementPage)
-                       
+        ZStack{
+            
+                TabView(selection: $pageIndex) {
+                    ForEach(pages) { page in
+                        ZStack {
+                            OnboardingScreensView(page: page)
+                            VStack {
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                                ZStack {
+                            Spacer()
+                                    if page == pages.last {
+                                        Button("Sign up!", action: { isSignUpActive = true })
+                                            .padding()
+                                    } else {
+                                        Button("Next", action: incrementPage)
+                                            .padding().frame(height: 100, alignment: .bottomLeading)
+                                        Spacer()
+                                    }
+                                    Spacer()
+                                    Spacer()
+                                }
+                                Spacer(minLength: 100)
+
+                                
+                            }
+                        }
+                        .tag(page.tag)
                     }
-        
                 }
-                .tag(page.tag)
+                .fullScreenCover(isPresented: $isSignUpActive) {
+                    SignUpView()
+                }
             }
         }
-        .fullScreenCover(isPresented: $isSignUpActive, content: {
-                   SignUpView()
-               })
-       Color("Bluegray900")
-        .animation(.easeInOut, value: pageIndex)// 2
-        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-        .tabViewStyle(PageTabViewStyle())
-        .onAppear {
-            dotAppearance.currentPageIndicatorTintColor = .black
-            dotAppearance.pageIndicatorTintColor = .gray
-        }
-        
-    }
     
     func incrementPage() {
         pageIndex += 1
@@ -54,8 +51,6 @@ struct ContentView: View {
     func goToZero() {
         pageIndex = 0
     }
- 
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

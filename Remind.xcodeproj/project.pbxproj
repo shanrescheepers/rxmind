@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreensView.swift; sourceTree = "<group>"; };
 		04F6DEA12A80482200AAA958 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
-		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		071A9FE7E75FB5CC6CCF3657 /* SignUpView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2128BCBBB5A3AAD6F9663447 /* BarlowLight.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = BarlowLight.ttf; sourceTree = "<group>"; };
 		25ED45CCD59B6290F5C40B55 /* DashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DashView.swift; sourceTree = "<group>"; };

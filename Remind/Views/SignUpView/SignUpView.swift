@@ -4,7 +4,7 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var groupsevenText: String = ""
     @State private var groupsixText: String = ""
-    @State private var email: String = "test@test.com"
+    @State private var email: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
     

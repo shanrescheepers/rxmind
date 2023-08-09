@@ -11,15 +11,17 @@ struct OnboardingScreensView: View {
     var page: Page
        
        var body: some View {
-           VStack(spacing: 10) {
-               Image("\(page.imageUrl)")
+           ZStack{
+               VStack(spacing: 10) {
+                   Image("\(page.imageUrl)")
+                       
+                       .scaledToFit()
+                       .padding()
+                       .cornerRadius(30)
                    
-                   .scaledToFit()
-                   .padding()
-                   .cornerRadius(30)
-               
-                   .cornerRadius(10)
-                   .padding()
+                       .cornerRadius(10)
+                       .padding()
+               }
            }
              
        }

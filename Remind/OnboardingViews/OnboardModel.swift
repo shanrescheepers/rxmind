@@ -14,11 +14,11 @@ struct Page: Identifiable, Equatable {
     var imageUrl: String
     var tag: Int
     
-    static var samplePage = Page(name: "Title Example", description: "This is a sample description for the purpose of debugging", imageUrl: "Onboard_1", tag: 0)
+    static var samplePage = Page(name: "Title Example", description: "", imageUrl: "Onboard_1", tag: 0)
     
     static var samplePages: [Page] = [
-        Page(name: "Welcome to Default App!", description: "The best app to get stuff done on an app.", imageUrl: "Onboard_1", tag: 0),
-        Page(name: "Meet new people!", description: "The perfect place to meet new people so you can meet new people!", imageUrl: "Onboard_2", tag: 1),
-        Page(name: "Edit your face", description: "Don't like your face? Well then edit your face with our edit-face tool!", imageUrl: "Onboard_3", tag: 2),
+        Page(name: "", description: "", imageUrl: "Onboard_1", tag: 0),
+        Page(name: "", description: "", imageUrl: "Onboard_2", tag: 1),
+        Page(name: "", description: "", imageUrl: "Onboard_3", tag: 2),
     ]
 }

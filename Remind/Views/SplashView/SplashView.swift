@@ -52,9 +52,13 @@ struct SplashView: View {
                         self.showDashView = true
                     }
                 }
-      
+     
         .fullScreenCover(isPresented: $showDashView){
-          SignUpView()
+            ZStack{
+                HStack{
+                    ContentView()
+                }
+            }
         }
         
     }

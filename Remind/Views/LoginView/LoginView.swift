@@ -8,7 +8,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var showSignUp = false
     @State private var isSignUpActive = false
-    
+    @State private var isHomeActive = false
     var body: some View {
     
         NavigationView{
@@ -79,7 +79,7 @@ struct LoginView: View {
                             }
                         }
                         VStack{
-                            Button(action: {}, label: {
+                            Button(action: {isHomeActive = true}, label: {
                                 HStack(spacing: 0) {
                                     Text("Log in")
                                         .font(FontScheme
@@ -93,7 +93,14 @@ struct LoginView: View {
                                            
                             
                                 }
-                            })
+                            }).fullScreenCover(isPresented: $isHomeActive) {
+                                // Present the SignUpView as a full screen cover
+                                DashView()
+                                
+                                    .navigationBarHidden(true)
+                                
+                                    .navigationBarBackButtonHidden(true)
+                            }
                         }
                         .frame(width: getRelativeWidth(208.0), height: getRelativeHeight(67.0),
                                alignment: .topLeading)
