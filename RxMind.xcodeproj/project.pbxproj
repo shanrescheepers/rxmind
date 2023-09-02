@@ -67,7 +67,7 @@
 		8853052B2771949600B04E6F /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		88680D1B2775C601002E964F /* ViewportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewportHelper.swift; sourceTree = "<group>"; };
 		888CB47427686A000041116C /* APIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIExtensions.swift; sourceTree = "<group>"; };
-		88ED74E4272FFE6E0088E3EF /* Remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88ED74E4272FFE6E0088E3EF /* rxmind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rxmind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ED74EB272FFE6F0088E3EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88ED74EE272FFE6F0088E3EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88ED74F0272FFE6F0088E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		88ED74DB272FFE6E0088E3EF = {
 			isa = PBXGroup;
 			children = (
-				88ED74E6272FFE6E0088E3EF /* Remind */,
+				88ED74E6272FFE6E0088E3EF /* rxmind */,
 				88ED74E5272FFE6E0088E3EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -199,12 +199,12 @@
 		88ED74E5272FFE6E0088E3EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88ED74E4272FFE6E0088E3EF /* Remind.app */,
+				88ED74E4272FFE6E0088E3EF /* rxmind.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		88ED74E6272FFE6E0088E3EF /* Remind */ = {
+		88ED74E6272FFE6E0088E3EF /* rxmind */ = {
 			isa = PBXGroup;
 			children = (
 				04F6DEA82A842A6B00AAA958 /* Health */,
@@ -223,7 +223,7 @@
 				4AFABAB0481B0819CFDBB8E4 /* Views */,
 				3B86F3A3D4B6D5882812BBA7 /* ViewModel */,
 			);
-			path = Remind;
+			path = rxmind;
 			sourceTree = "<group>";
 		};
 		88ED74ED272FFE6F0088E3EF /* Preview Content */ = {
@@ -332,9 +332,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88ED74E3272FFE6E0088E3EF /* Remind */ = {
+		88ED74E3272FFE6E0088E3EF /* rxmind */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "Remind" */;
+			buildConfigurationList = 88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "rxmind" */;
 			buildPhases = (
 				88ED74E0272FFE6E0088E3EF /* Sources */,
 				88ED74E1272FFE6E0088E3EF /* Frameworks */,
@@ -344,9 +344,9 @@
 			);
 			dependencies = (
 			);
-			name = Remind;
+			name = rxmind;
 			productName = Remind;
-			productReference = 88ED74E4272FFE6E0088E3EF /* Remind.app */;
+			productReference = 88ED74E4272FFE6E0088E3EF /* rxmind.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -363,7 +363,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */;
+			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "rxmind" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -376,7 +376,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				88ED74E3272FFE6E0088E3EF /* Remind */,
+				88ED74E3272FFE6E0088E3EF /* rxmind */,
 			);
 		};
 /* End PBXProject section */
@@ -557,13 +557,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Remind/Remind.entitlements;
+				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Remind/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"rxmind/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Remind/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RxMind;
+				INFOPLIST_FILE = rxmind/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = rxmind;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,13 +581,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Remind/Remind.entitlements;
+				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Remind/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"rxmind/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Remind/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RxMind;
+				INFOPLIST_FILE = rxmind/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = rxmind;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,7 +603,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */ = {
+		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "rxmind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88ED74F1272FFE6F0088E3EF /* Debug */,
@@ -612,7 +612,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "Remind" */ = {
+		88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "rxmind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88ED74F4272FFE6F0088E3EF /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  HealthKitManager.swift
-//  Remind
+//  rxmind
 //
 //  Created by Mac on 2023/08/09.
 //

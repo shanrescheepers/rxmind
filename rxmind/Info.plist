@@ -26,7 +26,7 @@
 		<true/>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Please allow us to access your health info for you to start using the ReMind App</string>
+	<string>You&apos;ve decided to use rxmind  app. Good choice. Please allow us to access your device&apos;s health kitf or you to start using the rxmind app</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BarlowLight.ttf</string>
