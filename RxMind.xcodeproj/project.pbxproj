@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04042C102AA39A3D009954DA /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C0F2AA39A3D009954DA /* TimePickerView.swift */; };
 		04F6DE9D2A80474100AAA958 /* OnboardingScreensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */; };
 		04F6DEA22A80482200AAA958 /* OnboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA12A80482200AAA958 /* OnboardModel.swift */; };
 		04F6DEA42A8049F200AAA958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA32A8049F200AAA958 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04042C0F2AA39A3D009954DA /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreensView.swift; sourceTree = "<group>"; };
 		04F6DEA12A80482200AAA958 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
 		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -147,6 +149,7 @@
 				9DBAC268E8B4B2A76C114130 /* SignUpView */,
 				28B811C826C4471E0CAE2F76 /* DashView */,
 				04F6DEA32A8049F200AAA958 /* ContentView.swift */,
+				04042C0F2AA39A3D009954DA /* TimePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				888CB47527686A000041116C /* APIExtensions.swift in Sources */,
 				8853052A27718E2D00B04E6F /* EncodableExtension.swift in Sources */,
 				04F6DEA42A8049F200AAA958 /* ContentView.swift in Sources */,
+				04042C102AA39A3D009954DA /* TimePickerView.swift in Sources */,
 				8853052C2771949600B04E6F /* UINavigationController.swift in Sources */,
 				7F44DBA127422A5D00171570 /* ActivityLoader.swift in Sources */,
 				04F6DEAC2A842A8A00AAA958 /* HealthViewScreen.swift in Sources */,
