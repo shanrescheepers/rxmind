@@ -363,7 +363,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "Remind" */;
+			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -563,12 +563,13 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Remind/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RxMind;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.remind.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rxmind.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,12 +587,13 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Remind/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RxMind;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.remind.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rxmind.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -601,7 +603,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "Remind" */ = {
+		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88ED74F1272FFE6F0088E3EF /* Debug */,

@@ -56,8 +56,8 @@ struct SplashView: View {
         .fullScreenCover(isPresented: $showDashView){
             ZStack{
                 HStack{
-//                    ContentView()
-                    HealthViewScreen()
+                    ContentView()
+//                    HealthViewScreen()
                 }
             }
         }

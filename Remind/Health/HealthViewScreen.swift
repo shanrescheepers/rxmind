@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HealthViewScreen: View {
+    @State private var showDash = false
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     
@@ -24,6 +25,35 @@ struct HealthViewScreen: View {
                 
                 
             }
+        }
+        Spacer()
+//        action: {
+        
+//        showSignUp = true
+             
+//         }
+        Button(action: {showDash = true}, label: {
+            HStack(spacing: 0) {
+                Text("Go To Dash")
+                    .font(FontScheme
+                        .kAveriaSerifLibreRegular(size: getRelativeHeight(32.0)))
+                    .fontWeight(.regular)
+                    .padding(.horizontal, getRelativeWidth(70.0))
+                    .padding(.vertical, getRelativeHeight(19.0))
+                    .foregroundColor(ColorConstants.Gray300)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.leading)
+                       
+        
+            }
+        }).fullScreenCover(isPresented: $showDash) {
+            // Present the SignUpView as a full screen cover
+//                                DashView()
+            DashView()
+            
+                .navigationBarHidden(true)
+            
+                .navigationBarBackButtonHidden(true)
         }
     }
 }
