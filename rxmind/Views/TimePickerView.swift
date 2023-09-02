@@ -16,20 +16,41 @@ struct TimePickerView: View {
     }
 
     var body: some View {
-        VStack {
-            DatePicker("Select Goal Date", selection: $selectedDate, in: Date()...).datePickerStyle(CompactDatePickerStyle()).environment(\.colorScheme, .dark)
-              .labelsHidden()
+        ZStack{
+          
+            Color.black.opacity(0.5).cornerRadius(12) // Adjust opacity as needed
             VStack{
                 HStack{
-                    Text("Time until goal reached ") .font(.title3).fontWeight(.bold)
-                        .frame(width: .infinity).foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))) // Set the text color
-           
-                }
-   
-                HStack{
-                    Text("\(formattedTimeRemaining)")
-                }
+                    
+                    Text("Set your goal date below").frame(maxWidth: .infinity, alignment: .leading ).padding(.horizontal).foregroundColor(Color(.sRGB, red: 0x5E / 255.0, green: 0x71 / 255.0, blue: 0x77 / 255.0))
+                    
+                }.padding(12)
+                Spacer()
             }
+            RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray)
+                            .opacity(0.1) // Adjust opacity as needed
+                            .frame(width: 300, height: 130)
+                            .overlay(
+                                
+                                VStack {
+                                  
+                                    DatePicker("Select Goal Date", selection: $selectedDate, in: Date()...).datePickerStyle(CompactDatePickerStyle()).environment(\.colorScheme, .dark)
+                                        .labelsHidden().padding(.top)
+                           
+                                    VStack{
+                                        HStack{
+                                            Text("Time until goal reached ") .font(.title3).fontWeight(.bold)
+                                                .frame(width: 400).foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))) // Set the text color
+                                   
+                                        }.padding(.top, 2)
+                           
+                                        HStack{
+                                            Text("\(formattedTimeRemaining)")
+                                        }.padding(.all, 2)
+                                    }
+                                }
+                            )
         }
         .onAppear {
             // Start the timer when the view appears
@@ -39,6 +60,8 @@ struct TimePickerView: View {
             // Stop the timer when the view disappears to avoid leaks
             timerManager.stopTimer()
         }
+       
+      
     }
 
     var formattedTimeRemaining: String {
