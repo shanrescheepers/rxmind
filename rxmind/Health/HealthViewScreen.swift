@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HealthViewScreen: View {
     @State private var showDash = false
-    
+    @State private var isPresented = false // Added state variable for animation
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     
     var body: some View {
@@ -46,15 +46,14 @@ struct HealthViewScreen: View {
                        
         
             }
-        }).fullScreenCover(isPresented: $showDash) {
-            // Present the SignUpView as a full screen cover
-//                                DashView()
+        }).fullScreenCover(isPresented: $showDash, content: {
             DashView()
-            
+                .transition(.opacity)
                 .navigationBarHidden(true)
             
                 .navigationBarBackButtonHidden(true)
-        }
+        })
+        
     }
 }
 
