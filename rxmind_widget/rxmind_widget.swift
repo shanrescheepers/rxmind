@@ -57,13 +57,31 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
+struct CustomContainerShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        // Define the custom shape path here
+        // For example, you can create a rounded rectangle
+        let cornerRadius: CGFloat = 10.0
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        
+        // Convert the UIBezierPath to a SwiftUI Path
+        var swiftUIPath = Path()
+        swiftUIPath.addPath(Path(path.cgPath))
+        
+        return swiftUIPath
+    }
+}
+
 struct rxmind_widgetEntryView : View {
     var entry: Provider.Entry
-    @AppStorage("heartRate") private var heartRate: String = "0"
+    @AppStorage("heartRate") private var heartRate: String = "65"
     @AppStorage("stepsCount") private var stepsCount: String = "0"
 
     var body: some View {
+
+            
         ZStack {
+   
             
             VStack {
                     ZStack{
@@ -89,8 +107,9 @@ struct rxmind_widgetEntryView : View {
                              
                             }
                         
-                       
+                       //The widget background view is missing. Please ensure that you have called the `containerBackground(for: .widget) {…}` modifier in your widget view.
                     }.frame(width: 200, height: 100).padding(.top,0)
+                    
                 HStack{
                     Text("your")
                         .font(.system(size: 12))
@@ -106,8 +125,11 @@ struct rxmind_widgetEntryView : View {
                 }
             }
         }
+//        .widgetURL(URL(string: "your-deep-link-url-here"))
+        .widgetBackground(Color.black)
         .frame(width: 200, height: 160)
-        .background(Color(red: 0.173, green: 0.224, blue: 0.227))
+//        .containerBackground(Color(red: 0.173, green: 0.224, blue: 0.227), for: rxmind_widgetEntryView)
+        
         .onAppear {
             // Fetch the heart rate data and daily steps when the view appears
             fetchHeartRate()
@@ -176,14 +198,28 @@ struct rxmind_widgetEntryView : View {
 }
 
 
-
+extension View {
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+              
+            }
+        } else {
+            return background(backgroundView)
+        }
+    }
+}
 
 
 struct rxmind_widget: Widget {
     let kind: String = "rxmind_widget"
     
+    
+    
 
     var body: some WidgetConfiguration {
+        
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             rxmind_widgetEntryView(entry: entry)
         }

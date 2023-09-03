@@ -7,7 +7,7 @@ struct Profile: View {
         ZStack{
             //        2nd VStack
             Image("profile").resizable()
-     
+                .ignoresSafeArea()
             VStack {
                 Text("Enable or Disable Face ID here").font(.system(size: 16)).fontWeight(.bold).lineSpacing(4).padding(10).foregroundColor(Color.black).padding(.bottom).padding(.horizontal,10)
                 
@@ -24,7 +24,8 @@ struct Profile: View {
             }.padding(.top,50)
             .navigationBarTitle("Profile")
         }
-        .ignoresSafeArea()
+        
+//        .hideNavigationBar()
     }
     
 }

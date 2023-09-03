@@ -58,7 +58,7 @@ struct HeartDetialsScreen: View {
              
                
             }
-            Spacer(minLength: 30)
+            Spacer(minLength: 40)
             VStack{
                 ZStack{
                     Color.black.opacity(0.5).cornerRadius(100)
@@ -72,9 +72,9 @@ struct HeartDetialsScreen: View {
                             .font(.system(size: 16)).fontWeight(.black)
                             .foregroundColor(.white)
                     .padding()
-                    }.padding(.horizontal)
+                    }.padding()
                
-                }.frame(width: 300, height: 100).padding(.top,30)
+                }.frame(width: 300, height: 100).padding(.top,80)
                 
                 
            
@@ -121,9 +121,9 @@ struct HeartDetialsScreen: View {
                         VStack{
                             //                      Bar chart here
                             HeartBarChartView(selectedInterval: selectedInterval, heartRateData: heartrateData)
-                                .onAppear(perform: loadHeartRateData)
+                                .onAppear(perform: loadHeartRateData).frame(width: 300, height: 200)
                             
-                        }.padding(.all, 4).frame(width: 200, height: 200)
+                        }.padding(.all, 4).frame(width: 300, height: 200)
                     }.padding(.horizontal)
                     Spacer()
                 }.padding(.top,50).frame(width: 300, height: 300)
@@ -134,7 +134,7 @@ struct HeartDetialsScreen: View {
                     VStack(alignment: .center){
                         Text("Look after your heart - some things aren't worth the stress")
                             .font(.system(size: 12)).fontWeight(.light)
-                            .foregroundColor(Color.white).padding(.horizontal)        .multilineTextAlignment(.center)
+                            .foregroundColor(Color.white).padding(.horizontal)        .multilineTextAlignment(.center).padding(.top,-10)
                         HStack{
                             Text("Heart Rate Variability: \(Int(hrv ?? 0))") // Display HRV in a text field
                                             .font(.system(size: 16))
@@ -286,7 +286,7 @@ struct HeartBarChartView: View {
                                 Rectangle()
                                     .fill(Color.purple)
                                     .cornerRadius(12)
-                                    .frame(width: 8, height: self.scaleHeight(data.heart, in: geometry.size.height * 0.6))
+                                    .frame(width: 1, height: self.scaleHeight(data.heart, in: geometry.size.height - 6))
                                 Spacer()
                                 Spacer()
 
@@ -294,7 +294,7 @@ struct HeartBarChartView: View {
                                     Text("\(Int(data.heart))")
                                         .font(.caption)
                                         .foregroundColor(Color.white)
-                                        .font(.system(size: 14))
+                                        .font(.system(size: 10))
                                         .fontWeight(.medium)
                                 }
                                 Spacer()
@@ -302,18 +302,18 @@ struct HeartBarChartView: View {
                                 HStack {
                                     Text(self.formatDate(data.date))
                                         .foregroundColor(Color.purple)
-                                        .font(.system(size: 14))
+                                        .font(.system(size: 10))
                                 }
                                 .padding(.top, 20)
                             }
                         }
                     }
-                    .frame(width: 250, height: geometry.size.height + 0.8) // Ensure bars fill the available height
-                }
-            }
+                    .frame(width: 300, height: geometry.size.height - 0.8) // Ensure bars fill the available height
+                } .frame(width: 300)
+            } .frame(width: 300)
             .padding()
         }
-        .frame(width: 250)
+        .frame(width: 300)
     }
     private func scaleHeight(_ value: Double, in availableHeight: CGFloat) -> CGFloat {
             // Scale the value to fit within the available height

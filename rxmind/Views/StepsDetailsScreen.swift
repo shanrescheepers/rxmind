@@ -70,7 +70,7 @@ struct StepsDetailsScreen: View {
                             .foregroundColor(.white)
                             .padding()
                     }.padding()
-                }.padding(.top,-80).frame(width: 300, height: 20)
+                }.frame(width: 320, height: 100).padding(.top, -28)
   
                 
                 ZStack{
@@ -109,15 +109,15 @@ struct StepsDetailsScreen: View {
                             .pickerStyle(SegmentedPickerStyle()).frame(width: 280, height: 40).padding(.top,10)
                             .onChange(of: selectedInterval, perform: { _ in
                                 loadStepData()
-                            })
+                            }).padding()
                             
-                        }
+                        }.padding(.bottom,10)
                         VStack{
                             //                      Bar chart here
-                            BarChartView(stepData: stepData, selectedInterval: selectedInterval)
-                                .onAppear(perform: loadStepData)
+                            BarChartView(stepData: stepData, selectedInterval: selectedInterval).frame(width: 200, height: 300)
+                                .onAppear(perform: loadStepData).frame(width: 200, height: 300)
                             
-                        }.padding(.all, 4).frame(width: 200, height: 300)
+                        }.frame(width: 290, height: 290)
                         
                     }.padding(.horizontal)
                 }.padding(1).frame(width: 300, height: 500)
@@ -201,7 +201,7 @@ struct BarChartView: View {
     
     let selectedInterval: TimeIntervalOption
     var body: some View {
-        HStack{
+//        HStack{
             ScrollView(.horizontal) {
                 VStack{
                     GeometryReader { geometry in
@@ -211,31 +211,31 @@ struct BarChartView: View {
                                     Spacer()
                                     Rectangle()
                                         .fill(Color.purple).cornerRadius(12)
-                                        .frame(width: 8, height: self.scaleHeight(data.steps, in: geometry.size.height * 0.8))
-                                    Spacer()
-                                    Spacer()
-
-                                    HStack(alignment: .bottom){
-                                        Text("\(Int(data.steps))")
-                                            .font(.caption).foregroundColor(Color.white).font(.system(size: 14)).fontWeight(.medium)
-                                    
-                                    }
-                                    Spacer()
-                                    
-                                    HStack{
-                                        Text(self.formatDate(data.date)).foregroundColor(Color.purple).font(.system(size: 14))
-                                    }.padding(.top,20)
-                                }
+                                        .frame(width: 1, height: self.scaleHeight(data.steps, in: geometry.size.height))
                                 
+                                 
+                                }.frame(height: 200)
+                                Spacer()
+                                VStack{
+                                    HStack(alignment: .center){
+                                        Text("\(Int(data.steps))")
+                                            .foregroundColor(Color.white).font(.system(size: 10)).fontWeight(.light)
+                                    }
+    //                                    Spacer()
+                                    
+                                    HStack {
+                                        Text(self.formatDate(data.date)).foregroundColor(Color.purple).font(.system(size: 10))
+                                    }
+                                }
                             }
                         }
-                        .frame(width: 250 ,height: geometry.size.height + 0.8) // Ensure bars fill the available height
-                    }
+                        .frame(width: 300 ,height: geometry.size.height - 0.8) // Ensure bars fill the available height.h
+                    } .frame(width: 300 ,height:290)
                 }
-                .padding()
+             
                 
-            }.frame(width: 250 )
-        }.frame(width: 300)
+            }.frame(width: 280, height: 290 )
+//        }.frame(width: 300)
     }
     private func scaleHeight(_ value: Double, in availableHeight: CGFloat) -> CGFloat {
             // Scale the value to fit within the available height

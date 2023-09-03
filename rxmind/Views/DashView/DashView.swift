@@ -56,7 +56,7 @@ struct DashView: View {
                             Image("rlogo")
                                                   .resizable()
                                                   .frame(width: 90, height: 20)
-                                                  .padding(.top, -20)
+                                                  
                                                   .padding(.horizontal)
                         }
                         
@@ -111,9 +111,9 @@ struct DashView: View {
                                 HStack{
                                     Image("steps")
                                         .resizable()
-                                        .frame(width: 25, height: 40)
+                                        .frame(width: 20, height: 30)
                                     Text("Your Steps")
-                                        .font(.system(size: 20)).fontWeight(.black)
+                                        .font(.system(size: 16)).fontWeight(.black)
                                         .foregroundColor(.white).padding(.horizontal)
                                 }.padding()
                                 Spacer()
@@ -134,7 +134,7 @@ struct DashView: View {
                                         .padding(.leading)
                                     
                                     Circle()
-                                        .trim(from: 0.0, to: CGFloat(min(self.progress / 1000, 1.0)))
+                                        .trim(from: 0.0, to: CGFloat(min(self.progress / 10000, 1.0)))
                                         .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                                         .foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1)))
                                         .rotationEffect(Angle(degrees: 270.0))
@@ -150,7 +150,7 @@ struct DashView: View {
                                         .font(.system(size: 16)).foregroundColor(Color.white)
                                         .fontWeight(.bold).padding(.leading)
                                 }.frame(width: 200, height: 100).padding(.top,50)
-                                Text("Daily average Steps")
+                                Text("Daily Total Steps")
                                     .font(.system(size: 12)).fontWeight(.medium)
                                     .foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom,15).padding(.leading).padding(.top,-5)
                             }
@@ -193,7 +193,7 @@ struct DashView: View {
                             NavigationLink("", destination: StepsDetailsScreen(), isActive: $isDetailViewActive)
                                 .opacity(0) // Make the link invisible
               
-                        }.frame(width: 350, height: 160).padding(.vertical,10)
+                        }.frame(width: 350, height: 160).padding(.vertical,0)
                         
                         
                         // STEPS
@@ -212,7 +212,7 @@ struct DashView: View {
                                         .frame(width: 30, height: 30)
                                     
                                     Text("Your Heart")
-                                        .font(.system(size: 20)).fontWeight(.black)
+                                        .font(.system(size: 16)).fontWeight(.black)
                                         .foregroundColor(Color(.sRGB, red: 0xCC / 255, green: 0x3A / 255, blue: 0x5D / 255, opacity: 1.0)).padding(.horizontal)
                                 }.padding()
                                 Spacer()
@@ -222,13 +222,13 @@ struct DashView: View {
                                         // GO TO HEART DETAILS
                                     if let heartRate = heartRate {
                                                     Text(" \(Int(heartRate)) BPM")
-                                            .font(.title).foregroundColor(Color.white).fontWeight(.bold)
+                                            .font(.system(size: 20)).foregroundColor(Color.white).fontWeight(.bold)
                                                 } else {
-                                                    Text("Fetching heart rate...")
-                                                        .font(.title)
+                                                    Text("Fetching...")
+                                                        .font(.system(size: 14)).foregroundColor(Color.blue)
                                                 }
                                     
-                                }.frame(width: 200, height: 100).padding(.top,40).padding(.horizontal)
+                                }.frame(width: 200, height: 80).padding(.top,40).padding(.horizontal)
                                 Text("Current BPM")
                                     .font(.system(size: 12)).fontWeight(.medium)
                                     .foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom).padding(.horizontal,10)
@@ -249,8 +249,8 @@ struct DashView: View {
                             }
                             NavigationLink("", destination: HeartDetialsScreen(), isActive: $isHeartDetailViewActive)
                                 .opacity(0) // Make the link invisible
-                        }.frame(width: 350, height: 160).padding(.vertical,10)
-                    }// Add padding
+                        }.frame(width: 350, height: 130).padding(.vertical,10)
+                    }.padding(.vertical,20)// Add padding
                     Spacer()
                 }
                 .onAppear {
@@ -283,6 +283,7 @@ struct DashView: View {
             .navigationBarHidden(false)
             .background(Color(#colorLiteral(red: 0.11764705882352941, green: 0.13725490196078433, blue: 0.1607843137254902, alpha: 1.0)))
             .navigationBarBackButtonHidden(false)
+            
         }
     }
         // Function to fetch today and yesterday's step counts from HealthKit

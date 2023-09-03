@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -568,8 +568,9 @@
 		88ED74DC272FFE6E0088E3EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					04042C1F2AA4E5BD009954DA = {
 						CreatedOnToolsVersion = 14.2;
@@ -585,7 +586,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "rxmind" */;
+			buildConfigurationList = 88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -733,7 +734,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A84C98MU3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rxmind_widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = rxmind_widget;
@@ -762,7 +763,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A84C98MU3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rxmind_widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = rxmind_widget;
@@ -1002,7 +1003,7 @@
 				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rxmind/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A84C98MU3G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rxmind/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = rxmind;
@@ -1027,7 +1028,7 @@
 				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rxmind/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A84C98MU3G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rxmind/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = rxmind;
@@ -1073,7 +1074,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "rxmind" */ = {
+		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "RxMind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88ED74F1272FFE6F0088E3EF /* Debug */,

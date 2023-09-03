@@ -20,11 +20,10 @@ struct SplashView: View {
                   
                     
                         VStack {
-                                                            Image("rlogo")
-                                    .resizable()
+                            Image("rlogo").resizable()
                                     .frame(width: getRelativeWidth(201.0),
                                            height: getRelativeHeight(62.0))
-                                    .scaledToFit()
+                                   
                                     .clipped()
                              
                                 Spacer()
@@ -35,14 +34,14 @@ struct SplashView: View {
                                     .scaledToFit()
                                     .clipped().padding(.horizontal)
 
-                            }.padding(.horizontal)
+                            }.padding(.horizontal,50)
                             .frame(width: getRelativeWidth(285.0), height: getRelativeHeight(201.0),
                                    alignment: .trailing)
                          
               
                     
                    
-                }.frame(width: 300, height: 700 ).padding(.all, 2).onAppear {
+                }.frame(width: 300, height: 700 ).padding(.horizontal,50).onAppear {
                     withAnimation(.easeInOut(duration: 0.5)) {
                         // Fade in and scale up when the screen appears
                     }
