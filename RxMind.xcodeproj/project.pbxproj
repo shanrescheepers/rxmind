@@ -22,6 +22,11 @@
 		04042C312AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */; };
 		04042C322AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */; };
 		04042C352AA4E5BF009954DA /* rxmind_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04042C442AA50948009954DA /* rxmind-watchios Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 04042C432AA50948009954DA /* rxmind-watchios Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04042C492AA50948009954DA /* rxmind_watchiosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C482AA50948009954DA /* rxmind_watchiosApp.swift */; };
+		04042C4B2AA50948009954DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C4A2AA50948009954DA /* ContentView.swift */; };
+		04042C4D2AA5094A009954DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04042C4C2AA5094A009954DA /* Assets.xcassets */; };
+		04042C502AA5094A009954DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04042C4F2AA5094A009954DA /* Preview Assets.xcassets */; };
 		04F6DE9D2A80474100AAA958 /* OnboardingScreensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */; };
 		04F6DEA22A80482200AAA958 /* OnboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA12A80482200AAA958 /* OnboardModel.swift */; };
 		04F6DEA42A8049F200AAA958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA32A8049F200AAA958 /* ContentView.swift */; };
@@ -66,6 +71,13 @@
 			remoteGlobalIDString = 04042C1F2AA4E5BD009954DA;
 			remoteInfo = rxmind_widgetExtension;
 		};
+		04042C452AA50948009954DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88ED74DC272FFE6E0088E3EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04042C422AA50948009954DA;
+			remoteInfo = "rxmind-watchios Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +90,17 @@
 				04042C352AA4E5BF009954DA /* rxmind_widgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04042C542AA5094A009954DA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				04042C442AA50948009954DA /* rxmind-watchios Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -98,6 +121,12 @@
 		04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = rxmind_widget.intentdefinition; sourceTree = "<group>"; };
 		04042C2E2AA4E5BF009954DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04042C302AA4E5BF009954DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04042C3E2AA50945009954DA /* rxmind-watchios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rxmind-watchios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04042C432AA50948009954DA /* rxmind-watchios Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rxmind-watchios Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04042C482AA50948009954DA /* rxmind_watchiosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxmind_watchiosApp.swift; sourceTree = "<group>"; };
+		04042C4A2AA50948009954DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04042C4C2AA5094A009954DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04042C4F2AA5094A009954DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreensView.swift; sourceTree = "<group>"; };
 		04F6DEA12A80482200AAA958 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
 		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -147,6 +176,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04042C402AA50948009954DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88ED74E1272FFE6E0088E3EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +222,25 @@
 				04042C302AA4E5BF009954DA /* Info.plist */,
 			);
 			path = rxmind_widget;
+			sourceTree = "<group>";
+		};
+		04042C472AA50948009954DA /* rxmind-watchios Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				04042C482AA50948009954DA /* rxmind_watchiosApp.swift */,
+				04042C4A2AA50948009954DA /* ContentView.swift */,
+				04042C4C2AA5094A009954DA /* Assets.xcassets */,
+				04042C4E2AA5094A009954DA /* Preview Content */,
+			);
+			path = "rxmind-watchios Watch App";
+			sourceTree = "<group>";
+		};
+		04042C4E2AA5094A009954DA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04042C4F2AA5094A009954DA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		04F6DE9B2A8046FF00AAA958 /* OnboardingViews */ = {
@@ -291,6 +346,7 @@
 			children = (
 				88ED74E6272FFE6E0088E3EF /* rxmind */,
 				04042C262AA4E5BE009954DA /* rxmind_widget */,
+				04042C472AA50948009954DA /* rxmind-watchios Watch App */,
 				04042C212AA4E5BD009954DA /* Frameworks */,
 				88ED74E5272FFE6E0088E3EF /* Products */,
 			);
@@ -301,6 +357,8 @@
 			children = (
 				88ED74E4272FFE6E0088E3EF /* rxmind.app */,
 				04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */,
+				04042C3E2AA50945009954DA /* rxmind-watchios.app */,
+				04042C432AA50948009954DA /* rxmind-watchios Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,6 +509,40 @@
 			productReference = 04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		04042C3D2AA50945009954DA /* rxmind-watchios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04042C552AA5094A009954DA /* Build configuration list for PBXNativeTarget "rxmind-watchios" */;
+			buildPhases = (
+				04042C3C2AA50945009954DA /* Resources */,
+				04042C542AA5094A009954DA /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04042C462AA50948009954DA /* PBXTargetDependency */,
+			);
+			name = "rxmind-watchios";
+			productName = "rxmind-watchios";
+			productReference = 04042C3E2AA50945009954DA /* rxmind-watchios.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		04042C422AA50948009954DA /* rxmind-watchios Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04042C512AA5094A009954DA /* Build configuration list for PBXNativeTarget "rxmind-watchios Watch App" */;
+			buildPhases = (
+				04042C3F2AA50948009954DA /* Sources */,
+				04042C402AA50948009954DA /* Frameworks */,
+				04042C412AA50948009954DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "rxmind-watchios Watch App";
+			productName = "rxmind-watchios Watch App";
+			productReference = 04042C432AA50948009954DA /* rxmind-watchios Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		88ED74E3272FFE6E0088E3EF /* rxmind */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "rxmind" */;
@@ -482,6 +574,12 @@
 					04042C1F2AA4E5BD009954DA = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					04042C3D2AA50945009954DA = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					04042C422AA50948009954DA = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					88ED74E3272FFE6E0088E3EF = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -502,6 +600,8 @@
 			targets = (
 				88ED74E3272FFE6E0088E3EF /* rxmind */,
 				04042C1F2AA4E5BD009954DA /* rxmind_widgetExtension */,
+				04042C3D2AA50945009954DA /* rxmind-watchios */,
+				04042C422AA50948009954DA /* rxmind-watchios Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -512,6 +612,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				04042C2F2AA4E5BF009954DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04042C3C2AA50945009954DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04042C412AA50948009954DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04042C502AA5094A009954DA /* Preview Assets.xcassets in Resources */,
+				04042C4D2AA5094A009954DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +656,15 @@
 				04042C2A2AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift in Sources */,
 				04042C2C2AA4E5BE009954DA /* rxmind_widget.swift in Sources */,
 				04042C282AA4E5BE009954DA /* rxmind_widgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04042C3F2AA50948009954DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04042C4B2AA50948009954DA /* ContentView.swift in Sources */,
+				04042C492AA50948009954DA /* rxmind_watchiosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +716,11 @@
 			isa = PBXTargetDependency;
 			target = 04042C1F2AA4E5BD009954DA /* rxmind_widgetExtension */;
 			targetProxy = 04042C332AA4E5BF009954DA /* PBXContainerItemProxy */;
+		};
+		04042C462AA50948009954DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04042C422AA50948009954DA /* rxmind-watchios Watch App */;
+			targetProxy = 04042C452AA50948009954DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -650,6 +780,100 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04042C522AA5094A009954DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"rxmind-watchios Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = A84C98MU3G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "rxmind-watchios";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shanre.rxmind-watchios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		04042C532AA5094A009954DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"rxmind-watchios Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = A84C98MU3G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "rxmind-watchios";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shanre.rxmind-watchios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		04042C562AA5094A009954DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A84C98MU3G;
+				INFOPLIST_KEY_CFBundleDisplayName = "rxmind-watchios";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shanre.rxmind-watchios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		04042C572AA5094A009954DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A84C98MU3G;
+				INFOPLIST_KEY_CFBundleDisplayName = "rxmind-watchios";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shanre.rxmind-watchios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -827,6 +1051,24 @@
 			buildConfigurations = (
 				04042C372AA4E5BF009954DA /* Debug */,
 				04042C382AA4E5BF009954DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04042C512AA5094A009954DA /* Build configuration list for PBXNativeTarget "rxmind-watchios Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04042C522AA5094A009954DA /* Debug */,
+				04042C532AA5094A009954DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04042C552AA5094A009954DA /* Build configuration list for PBXNativeTarget "rxmind-watchios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04042C562AA5094A009954DA /* Debug */,
+				04042C572AA5094A009954DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
