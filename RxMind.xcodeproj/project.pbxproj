@@ -13,6 +13,15 @@
 		04042C162AA4BDBD009954DA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C152AA4BDBD009954DA /* Profile.swift */; };
 		04042C192AA4C956009954DA /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C182AA4C956009954DA /* AuthController.swift */; };
 		04042C1B2AA4C9F7009954DA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C1A2AA4C9F7009954DA /* AuthView.swift */; };
+		04042C232AA4E5BD009954DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04042C222AA4E5BD009954DA /* WidgetKit.framework */; };
+		04042C252AA4E5BD009954DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04042C242AA4E5BD009954DA /* SwiftUI.framework */; };
+		04042C282AA4E5BE009954DA /* rxmind_widgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C272AA4E5BE009954DA /* rxmind_widgetBundle.swift */; };
+		04042C2A2AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C292AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift */; };
+		04042C2C2AA4E5BE009954DA /* rxmind_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C2B2AA4E5BE009954DA /* rxmind_widget.swift */; };
+		04042C2F2AA4E5BF009954DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04042C2E2AA4E5BF009954DA /* Assets.xcassets */; };
+		04042C312AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */; };
+		04042C322AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */; };
+		04042C352AA4E5BF009954DA /* rxmind_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04F6DE9D2A80474100AAA958 /* OnboardingScreensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */; };
 		04F6DEA22A80482200AAA958 /* OnboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA12A80482200AAA958 /* OnboardModel.swift */; };
 		04F6DEA42A8049F200AAA958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA32A8049F200AAA958 /* ContentView.swift */; };
@@ -49,6 +58,30 @@
 		FDEA460926CE2AF9BAA405E2 /* BarlowLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2128BCBBB5A3AAD6F9663447 /* BarlowLight.ttf */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		04042C332AA4E5BF009954DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88ED74DC272FFE6E0088E3EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04042C1F2AA4E5BD009954DA;
+			remoteInfo = rxmind_widgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04042C392AA4E5BF009954DA /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				04042C352AA4E5BF009954DA /* rxmind_widgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		04042C0F2AA39A3D009954DA /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		04042C112AA3CD99009954DA /* StepsDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsDetailsScreen.swift; sourceTree = "<group>"; };
@@ -56,6 +89,15 @@
 		04042C152AA4BDBD009954DA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		04042C182AA4C956009954DA /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		04042C1A2AA4C9F7009954DA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = rxmind_widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04042C222AA4E5BD009954DA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		04042C242AA4E5BD009954DA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		04042C272AA4E5BE009954DA /* rxmind_widgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxmind_widgetBundle.swift; sourceTree = "<group>"; };
+		04042C292AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxmind_widgetLiveActivity.swift; sourceTree = "<group>"; };
+		04042C2B2AA4E5BE009954DA /* rxmind_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxmind_widget.swift; sourceTree = "<group>"; };
+		04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = rxmind_widget.intentdefinition; sourceTree = "<group>"; };
+		04042C2E2AA4E5BF009954DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04042C302AA4E5BF009954DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreensView.swift; sourceTree = "<group>"; };
 		04F6DEA12A80482200AAA958 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
 		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -96,6 +138,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04042C1D2AA4E5BD009954DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04042C252AA4E5BD009954DA /* SwiftUI.framework in Frameworks */,
+				04042C232AA4E5BD009954DA /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88ED74E1272FFE6E0088E3EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,6 +164,28 @@
 				04042C1A2AA4C9F7009954DA /* AuthView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		04042C212AA4E5BD009954DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04042C222AA4E5BD009954DA /* WidgetKit.framework */,
+				04042C242AA4E5BD009954DA /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04042C262AA4E5BE009954DA /* rxmind_widget */ = {
+			isa = PBXGroup;
+			children = (
+				04042C272AA4E5BE009954DA /* rxmind_widgetBundle.swift */,
+				04042C292AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift */,
+				04042C2B2AA4E5BE009954DA /* rxmind_widget.swift */,
+				04042C2D2AA4E5BE009954DA /* rxmind_widget.intentdefinition */,
+				04042C2E2AA4E5BF009954DA /* Assets.xcassets */,
+				04042C302AA4E5BF009954DA /* Info.plist */,
+			);
+			path = rxmind_widget;
 			sourceTree = "<group>";
 		};
 		04F6DE9B2A8046FF00AAA958 /* OnboardingViews */ = {
@@ -217,6 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				88ED74E6272FFE6E0088E3EF /* rxmind */,
+				04042C262AA4E5BE009954DA /* rxmind_widget */,
+				04042C212AA4E5BD009954DA /* Frameworks */,
 				88ED74E5272FFE6E0088E3EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -225,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				88ED74E4272FFE6E0088E3EF /* rxmind.app */,
+				04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +434,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04042C1F2AA4E5BD009954DA /* rxmind_widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04042C362AA4E5BF009954DA /* Build configuration list for PBXNativeTarget "rxmind_widgetExtension" */;
+			buildPhases = (
+				04042C1C2AA4E5BD009954DA /* Sources */,
+				04042C1D2AA4E5BD009954DA /* Frameworks */,
+				04042C1E2AA4E5BD009954DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rxmind_widgetExtension;
+			productName = rxmind_widgetExtension;
+			productReference = 04042C202AA4E5BD009954DA /* rxmind_widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		88ED74E3272FFE6E0088E3EF /* rxmind */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88ED74F3272FFE6F0088E3EF /* Build configuration list for PBXNativeTarget "rxmind" */;
@@ -365,10 +458,12 @@
 				88ED74E0272FFE6E0088E3EF /* Sources */,
 				88ED74E1272FFE6E0088E3EF /* Frameworks */,
 				88ED74E2272FFE6E0088E3EF /* Resources */,
+				04042C392AA4E5BF009954DA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				04042C342AA4E5BF009954DA /* PBXTargetDependency */,
 			);
 			name = rxmind;
 			productName = Remind;
@@ -381,9 +476,12 @@
 		88ED74DC272FFE6E0088E3EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					04042C1F2AA4E5BD009954DA = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					88ED74E3272FFE6E0088E3EF = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -403,11 +501,20 @@
 			projectRoot = "";
 			targets = (
 				88ED74E3272FFE6E0088E3EF /* rxmind */,
+				04042C1F2AA4E5BD009954DA /* rxmind_widgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04042C1E2AA4E5BD009954DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04042C2F2AA4E5BF009954DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88ED74E2272FFE6E0088E3EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,6 +532,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04042C1C2AA4E5BD009954DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04042C312AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */,
+				04042C2A2AA4E5BE009954DA /* rxmind_widgetLiveActivity.swift in Sources */,
+				04042C2C2AA4E5BE009954DA /* rxmind_widget.swift in Sources */,
+				04042C282AA4E5BE009954DA /* rxmind_widgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88ED74E0272FFE6E0088E3EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,13 +579,80 @@
 				04F6DEAE2A8439F400AAA958 /* Activity.swift in Sources */,
 				16A9C035A858B568623306C6 /* SignUpView.swift in Sources */,
 				04042C122AA3CD99009954DA /* StepsDetailsScreen.swift in Sources */,
+				04042C322AA4E5BF009954DA /* rxmind_widget.intentdefinition in Sources */,
 				44C2F9DE96476B00269FF1F1 /* DashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		04042C342AA4E5BF009954DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04042C1F2AA4E5BD009954DA /* rxmind_widgetExtension */;
+			targetProxy = 04042C332AA4E5BF009954DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		04042C372AA4E5BF009954DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = rxmind_widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = rxmind_widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rxmind.app.rxmind-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04042C382AA4E5BF009954DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = rxmind_widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = rxmind_widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rxmind.app.rxmind-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		88ED74F1272FFE6F0088E3EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -587,6 +772,7 @@
 		88ED74F4272FFE6F0088E3EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
@@ -611,6 +797,7 @@
 		88ED74F5272FFE6F0088E3EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = rxmind/rxmind.entitlements;
@@ -635,6 +822,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04042C362AA4E5BF009954DA /* Build configuration list for PBXNativeTarget "rxmind_widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04042C372AA4E5BF009954DA /* Debug */,
+				04042C382AA4E5BF009954DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		88ED74DF272FFE6E0088E3EF /* Build configuration list for PBXProject "rxmind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

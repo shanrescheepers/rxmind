@@ -7,6 +7,7 @@ struct DashView: View {
     @State private var isProfileViewActive = false
     @State private var isHeartDetailViewActive = false
     
+    
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     
     @State private var timer: Timer?
@@ -255,6 +256,7 @@ struct DashView: View {
                 .onAppear {
                     manager.fetchHeartRateData { result, error in
                                    if let heartRate = result {
+                                       UserDefaults.standard.set(heartRate, forKey: "heartRate")
                                        self.heartRate = heartRate
                                        print("heart rate:\(heartRate)")
                                    } else if let error = error {

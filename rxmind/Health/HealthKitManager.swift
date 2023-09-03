@@ -10,6 +10,7 @@ import HealthKit
 import SwiftUI
 //Manager to access Health Data
 class HealthKitManager: ObservableObject {
+    static let sharedHealthKitManager = HealthKitManager()
     let healthStore = HKHealthStore()
     let heartRateQuantity = HKUnit(from: "count/min")
         
