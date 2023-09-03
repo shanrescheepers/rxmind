@@ -4,6 +4,7 @@ import HealthKitUI
 
 struct DashView: View {
     @State private var isDetailViewActive = false
+    @State private var isProfileViewActive = false
     @State private var isHeartDetailViewActive = false
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
@@ -43,36 +44,48 @@ struct DashView: View {
         NavigationView{
             ZStack(alignment: .center) {
                 //        2nd VStack
-                Image("b").resizable().padding(.top,0)
-                
+                Image("b").resizable().padding(.top,10)
+                    .ignoresSafeArea()
                 ZStack{
                     
                     VStack {
                         
+                   
                         HStack{
-//                            Spacer()
-                            Image("rlogo").resizable().frame(width: 90, height: 20).padding(.top,20).padding(.horizontal)
-                            Spacer()
-                            Image("menubar").resizable().frame(width: 30, height: 30).padding(.top,20).padding(.horizontal)
-                            
-                            
-                        }.padding(.bottom,20).padding(.horizontal)
-                        HStack(alignment: .top) {
-                            //                        Text("Flex Goal").font(.title).fontWeight(.bold)
-                            //                            .frame(width: 120).padding().foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
+                            Image("rlogo")
+                                                  .resizable()
+                                                  .frame(width: 90, height: 20)
+                                                  .padding(.top, -20)
+                                                  .padding(.horizontal)
+                        }
+                        
+                        
+                        HStack {
+                         
                             Text("` \(formattedDate)`")
                                 .font(.system(size: 14))
                                 .foregroundColor(.white).padding(.horizontal) // Customize text color
-                            Spacer()
+                            VStack(alignment: .leading){
+                                Button("Profile") {
+                                    isProfileViewActive = true // Activate navigation
+                                }.padding(.top,2).padding(.leading,110)
+                                
+                                NavigationLink("", destination: Profile(), isActive: $isProfileViewActive)
+                                    .opacity(0) // Make the link invisible
+                            }
+                            //                        Text("Flex Goal").font(.title).fontWeight(.bold)
+                            //                            .frame(width: 120).padding().foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
+                    
+//                            Spacer()
                             // Add padding as needed
-                            Spacer() // Pushes "Profile" to the
+//                            Spacer() // Pushes "Profile" to the
                         }// Add padding as needed
-                        Spacer()
+//                        Spacer()
                         // Add padding as needed
-                        Spacer()
+//                        Spacer()
                         VStack{
                             HStack(alignment: .center){
-                                Text("It's a matter of your time and fucking effort. It all depends on you. Successes and failures. Keep priority & track of your mental and body state. ").font(.system(size: 14)).fontWeight(.medium).lineSpacing(4).padding(.leading,70).multilineTextAlignment(SwiftUI.TextAlignment.center)
+                                Text("It's a matter of your time and fucking effort. It all depends on you. Successes and failures. Keep priority & track of your mental and body state. ").font(.system(size: 14)).fontWeight(.medium).lineSpacing(4).padding(.leading,50).multilineTextAlignment(SwiftUI.TextAlignment.leading)
                                     .frame(width: 340, height: 100, alignment: .center ).foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
                                 Spacer()
 //                                Spacer()
@@ -229,7 +242,6 @@ struct DashView: View {
                                         Button("Details") {
                                             isHeartDetailViewActive = true // Activate navigation
                                         }.padding(.horizontal)
-                                      
                                     }
                                 }
                                 .padding()
@@ -256,9 +268,7 @@ struct DashView: View {
                         self.scaleEffect(1)
                     }
                     // Fetch heart rate data when the view appears
-                    
                 }
-      
                 .frame(width: 340, height: 720 ).onAppear
                 {
                     withAnimation(.easeInOut(duration: 0.5))
@@ -266,9 +276,8 @@ struct DashView: View {
                 }
             }
             //        2nd VStack
-            
             .opacity(isPresented ? 1 : 0) // Use opacity for a fade-in effect
-            .ignoresSafeArea()
+     
             .navigationBarHidden(false)
             .background(Color(#colorLiteral(red: 0.11764705882352941, green: 0.13725490196078433, blue: 0.1607843137254902, alpha: 1.0)))
             .navigationBarBackButtonHidden(false)

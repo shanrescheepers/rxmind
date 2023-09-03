@@ -5,7 +5,8 @@ struct SplashView: View {
     @State private var showDashView = false // Step 1: State variable
     
     @State private var isPresented = false // Added state variable for animation
-    
+    @ObservedObject var authController = AuthController()
+    @State private var isAuthenticationEnabled = UserDefaults.standard.bool(forKey: "isAuthenticationEnabled")
 
     
     var body: some View {
@@ -83,7 +84,13 @@ struct SplashView: View {
             ZStack{
                 HStack{
 //                    ContentView()
-                   DashView()
+//                   DashView()
+                    if  isAuthenticationEnabled {
+                        AuthView()
+                        
+                    }else{
+                        DashView()
+                    }
 //                    StepsDetailsScreen()
                 }
             }
