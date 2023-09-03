@@ -28,8 +28,8 @@ class HealthKitManager: ObservableObject {
             let calories = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
             let heartRateVariability = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!
             let restingHeartRate = HKObjectType.quantityType(forIdentifier: .restingHeartRate)!
-            
-            let healthTypes: Set<HKObjectType> = [steps, calories, restingHeartRate, heartRateVariability]
+            let currentHeartRate = HKObjectType.quantityType(forIdentifier: .heartRate)!
+            let healthTypes: Set<HKObjectType> = [steps, calories, restingHeartRate, heartRateVariability, currentHeartRate]
             
             Task {
                 do {
@@ -38,6 +38,7 @@ class HealthKitManager: ObservableObject {
 //                    startHeartRateQuery()
                     fetchRestingHeartRate()
                     fetchHeartRateVariability()
+                  
                     
                 } catch {
                     print("Error retrieving HealthKit: \(error.localizedDescription)")
@@ -225,4 +226,32 @@ class HealthKitManager: ObservableObject {
 
         healthStore.execute(todayStepsQuery)
     }
+    
+   public func fetchHeartRateData(completion: @escaping (Double?, Error?) -> Void) {
+        let healthStore = HKHealthStore()
+
+        guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else {
+            completion(nil, NSError(domain: "YourAppDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Heart rate data not available"]))
+            return
+        }
+
+        let query = HKSampleQuery(sampleType: heartRateType, predicate: nil, limit: 1, sortDescriptors: nil) { (query, samples, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            guard let sample = samples?.first as? HKQuantitySample else {
+                completion(nil, NSError(domain: "YourAppDomain", code: 2, userInfo: [NSLocalizedDescriptionKey: "No heart rate data available"]))
+                return
+            }
+
+            let heartRate = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
+            completion(heartRate, nil)
+        }
+
+        healthStore.execute(query)
+    }
+    
+    
 }

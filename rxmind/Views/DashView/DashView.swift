@@ -4,6 +4,7 @@ import HealthKitUI
 
 struct DashView: View {
     @State private var isDetailViewActive = false
+    @State private var isHeartDetailViewActive = false
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     @State private var isAnimating = true
@@ -11,6 +12,10 @@ struct DashView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isPresented = false // Added state variable for animation
     @State private var inputData = ""
+    
+    
+    @State private var heartRate: Double?
+    
     
     // Selected date state
     @State private var selectedDate: Date = Date()
@@ -91,7 +96,7 @@ struct DashView: View {
                                         .resizable()
                                         .frame(width: 25, height: 40)
                                     Text("Your Steps")
-                                        .font(.system(size: 16)).fontWeight(.black)
+                                        .font(.system(size: 20)).fontWeight(.black)
                                         .foregroundColor(.white).padding(.horizontal)
                                 }.padding()
                                 Spacer()
@@ -132,12 +137,8 @@ struct DashView: View {
                             
                             // Bottom stack with image, two buttons, and aligned right
                             VStack {
-                                
                                 HStack {
-                                    
-                                    
                                     Spacer()
-                                    
                                     VStack {
                                         Button(action: {
                                             // Set the selected date to "Today"
@@ -149,7 +150,6 @@ struct DashView: View {
                                                 .foregroundColor(.white)
                                                 .padding()
                                         }
-                                        
                                         Button(action: {
                                             // Set the selected date to "Yesterday"
                                             selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
@@ -204,64 +204,63 @@ struct DashView: View {
                                         .frame(width: 30, height: 30)
                                     
                                     Text("Your Heart")
-                                        .font(.system(size: 16)).fontWeight(.black)
+                                        .font(.system(size: 20)).fontWeight(.black)
                                         .foregroundColor(Color(.sRGB, red: 0xCC / 255, green: 0x3A / 255, blue: 0x5D / 255, opacity: 1.0)).padding(.horizontal)
                                 }.padding()
                                 Spacer()
-          
                             }
                             VStack (alignment: .center) {
-                      
                                 ZStack{
-                                    
-                                    Text("\(Int(progress))")
-                                        .font(.system(size: 16)).foregroundColor(Color.white)
-                                        .fontWeight(.bold).padding(.leading)
+                                        // GO TO HEART DETAILS
+                                    if let heartRate = heartRate {
+                                                    Text(" \(Int(heartRate)) BPM")
+                                            .font(.title).foregroundColor(Color.white).fontWeight(.bold)
+                                                } else {
+                                                    Text("Fetching heart rate...")
+                                                        .font(.title)
+                                                }
                                 }.frame(width: 200, height: 100).padding(.top,40)
                             }
-                            
                             // Bottom stack with image, two buttons, and aligned right
                             VStack {
-                                
                                 HStack {
-                                    
-                                    
                                     Spacer()
-                                    
+                                    Spacer(minLength: 40)
                                     VStack {
-                                        Button(action: {
-                                            // Add action for the first button
-                                        }) {
-                                            Text("Button 1")
-                                                .foregroundColor(.white)
+                                        Spacer(minLength: 40)
+                                        Button("Details") {
+                                            isHeartDetailViewActive = true // Activate navigation
                                         }
-                                        
-                                        Button(action: {
-                                            // Add action for the second button
-                                        }) {
-                                            Text("Button 2")
-                                                .foregroundColor(.white)
-                                        }.padding()
                                         Text("Average BPM")
                                             .font(.system(size: 12)).fontWeight(.light)
                                             .foregroundColor(Color(.sRGB, red: 0xCC / 255, green: 0x3A / 255, blue: 0x5D / 255, opacity: 1.0)).padding(.top,20)
-                                        Spacer()
                                     }
-                                    
                                 }
                                 .padding()
                             }
+                            NavigationLink("", destination: HeartDetialsScreen(), isActive: $isHeartDetailViewActive)
+                                .opacity(0) // Make the link invisible
                         }.frame(width: 350, height: 160).padding(.vertical,10)
                     }// Add padding as needed
                     Spacer()
                 }
                 .onAppear {
+                    manager.fetchHeartRateData { result, error in
+                                   if let heartRate = result {
+                                       self.heartRate = heartRate
+                                       print("heart rate:\(heartRate)")
+                                   } else if let error = error {
+                                       print("Error fetching heart rate: \(error.localizedDescription)")
+                                   }
+                               }
                     withAnimation(.easeInOut(duration: 2.5)) {
                         isPresented = true
                         // Fade in and scale up when the screen appears
                         self.opacity(1)
                         self.scaleEffect(1)
                     }
+                    // Fetch heart rate data when the view appears
+                    
                 }
       
                 .frame(width: 340, height: 720 ).onAppear
@@ -312,6 +311,7 @@ struct DashView: View {
         }
         
     
+     
 
     }
 
