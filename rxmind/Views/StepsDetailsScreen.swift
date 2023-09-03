@@ -19,6 +19,9 @@ struct StepsDetailsScreen: View {
     
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
+    
+    @State private var stepCount: Double?
+    
     @State private var isAnimating = true
     @State private var progress: Double = 0
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -78,7 +81,7 @@ struct StepsDetailsScreen: View {
                         Text("Your   Steps")
                             .font(.system(size: 16)).fontWeight(.black)
                             .foregroundColor(.white)
-                    .padding()
+                            .padding()
                     }.padding(.horizontal)
                 }.padding(2).frame(width: 300, height: 100)
                 
@@ -95,36 +98,52 @@ struct StepsDetailsScreen: View {
                             Text("Thus far")
                                 .font(.system(size: 14)).fontWeight(.light)
                                 .foregroundColor(Color.white).padding()
-                            Text("88")
-                                .font(.system(size: 14)).fontWeight(.black)
-                                .foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))).padding(.leading,-3)
+                            
+                            if let stepCount = stepCount {
+                                            Text("\(Int(stepCount))")
+                                              .font(.system(size: 14)).fontWeight(.black)
+                                                .foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))).padding(.leading,-3)
+                                        } else {
+                                            Text("Fetching step count...")
+                                                .font(.title)
+                                        }
+                                
+                            
                         }.padding(.top,-10)
+                        
                         HStack{
                             
                             // Picker for time interval selection
                             Picker("Select Interval", selection: $selectedInterval) {
-                                            ForEach(TimeIntervalOption.allCases, id: \.self) { option in
-                                                Text(option.rawValue).tag(option)
-                                            }
-                                        }
-                                        .pickerStyle(SegmentedPickerStyle()).frame(width: 280, height: 40).padding(.top,10)
-                                        .onChange(of: selectedInterval, perform: { _ in
-                                                        loadStepData()
-                                                    })
-                                   
+                                ForEach(TimeIntervalOption.allCases, id: \.self) { option in
+                                    Text(option.rawValue).tag(option)
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle()).frame(width: 280, height: 40).padding(.top,10)
+                            .onChange(of: selectedInterval, perform: { _ in
+                                loadStepData()
+                            })
+                            
                         }
-                
                         VStack{
-//                      Bar chart here
+                            //                      Bar chart here
                             BarChartView(stepData: stepData, selectedInterval: selectedInterval)
-                                            .onAppear(perform: loadStepData)
+                                .onAppear(perform: loadStepData)
+                            
                         }.padding(.all, 4).frame(width: 200, height: 300)
                         
                     }.padding(.horizontal)
                 }.padding(1).frame(width: 300, height: 500)
-                
-           
-                
+                    .onAppear {
+                        // Fetch step count data when the view appears
+                        manager.fetchStepCountData { result, error in
+                            if let stepCount = result {
+                                self.stepCount = stepCount
+                            } else if let error = error {
+                                print("Error fetching step count: \(error.localizedDescription)")
+                            }
+                        }
+                    }
             }
         }
    

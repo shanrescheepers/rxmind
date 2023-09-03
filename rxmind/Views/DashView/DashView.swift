@@ -7,6 +7,8 @@ struct DashView: View {
     @State private var isHeartDetailViewActive = false
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
+    
+    
     @State private var isAnimating = true
     @State private var progress: Double = 0
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

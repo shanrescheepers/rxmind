@@ -254,4 +254,30 @@ class HealthKitManager: ObservableObject {
     }
     
     
+    
+    func fetchStepCountData(completion: @escaping (Double?, Error?) -> Void) {
+        let healthStore = HKHealthStore()
+
+        guard let stepCountType = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+            completion(nil, NSError(domain: "YourAppDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Step count data not available"]))
+            return
+        }
+
+        let query = HKStatisticsQuery(quantityType: stepCountType, quantitySamplePredicate: nil, options: .cumulativeSum) { (query, result, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            if let sum = result?.sumQuantity() {
+                let stepCount = sum.doubleValue(for: HKUnit.count())
+                completion(stepCount, nil)
+            } else {
+                completion(nil, NSError(domain: "YourAppDomain", code: 2, userInfo: [NSLocalizedDescriptionKey: "No step count data available"]))
+            }
+        }
+
+        healthStore.execute(query)
+    }
+    
 }
