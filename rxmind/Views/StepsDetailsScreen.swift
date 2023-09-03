@@ -55,20 +55,7 @@ struct StepsDetailsScreen: View {
             //        2nd VStack
             Image("b").resizable()
             
-            ZStack{
-                VStack {
-                    
-                    HStack{
-                        Spacer()
-                        Image("rlogo").resizable().frame(width: 110, height: 30)
-                        Spacer()
-                        Image("menubar").resizable().frame(width: 30, height: 30)
-                        
-                        
-                    }.padding()
-                    Spacer()
-                }.padding(.top,40)
-            }
+         
             VStack{
                 ZStack{
                     Color.black.opacity(0.5).cornerRadius(100)
@@ -82,9 +69,9 @@ struct StepsDetailsScreen: View {
                             .font(.system(size: 16)).fontWeight(.black)
                             .foregroundColor(.white)
                             .padding()
-                    }.padding(.horizontal)
-                }.padding(2).frame(width: 300, height: 100)
-                
+                    }.padding()
+                }.padding(.top,-80).frame(width: 300, height: 20)
+  
                 
                 ZStack{
                     Color.black.opacity(0.5).cornerRadius(12)
@@ -143,7 +130,7 @@ struct StepsDetailsScreen: View {
                                 print("Error fetching step count: \(error.localizedDescription)")
                             }
                         }
-                    }
+                    }.padding(.top,10)
             }
         }
    

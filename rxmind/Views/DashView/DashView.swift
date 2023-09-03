@@ -42,7 +42,7 @@ struct DashView: View {
         NavigationView{
             ZStack(alignment: .center) {
                 //        2nd VStack
-                Image("b").resizable()
+                Image("b").resizable().padding(.top,0)
                 
                 ZStack{
                     
@@ -50,7 +50,7 @@ struct DashView: View {
                         
                         HStack{
                             Spacer()
-                            Image("rlogo").resizable().frame(width: 110, height: 30)
+                            Image("rlogo").resizable().frame(width: 110, height: 30).padding(.top,20)
                             Spacer()
                             Image("menubar").resizable().frame(width: 30, height: 30)
                             
@@ -276,7 +276,7 @@ struct DashView: View {
             .opacity(isPresented ? 1 : 0) // Use opacity for a fade-in effect
             .ignoresSafeArea()
             .navigationBarHidden(false)
-        
+            .background(Color(#colorLiteral(red: 0.11764705882352941, green: 0.13725490196078433, blue: 0.1607843137254902, alpha: 1.0)))
             .navigationBarBackButtonHidden(false)
         }
     }

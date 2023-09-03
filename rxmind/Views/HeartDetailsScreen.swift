@@ -4,13 +4,25 @@ import HealthKitUI
 import Foundation
 
 
-
 struct HeartRateData {
     let date: Date
     let heart: Double
 }
 struct HeartDetialsScreen: View {
-    
+    enum StressLevel {
+            case low
+            case medium
+            case high
+
+            var description: String {
+                switch self {
+                case .low: return "LOW"
+                case .medium: return "MEDIUM"
+                case .high: return "HIGHT"
+                }
+            }
+        }
+    @State private var stressLevel: StressLevel = .low
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     @State private var isAnimating = true
@@ -20,7 +32,8 @@ struct HeartDetialsScreen: View {
     @State private var inputData = ""
     
     @State private var heartRate: Double?
-    
+    @State private var hrv: Double?
+
     
     @State private var selectedInterval: TimeIntervalOption = .day
     
@@ -42,21 +55,10 @@ struct HeartDetialsScreen: View {
             Image("b").resizable()
             
             ZStack{
-                VStack {
-                    
-                    HStack{
-                        Spacer()
-                        Image("rlogo").resizable().frame(width: 110, height: 30)
-                        Spacer()
-                        Image("menubar").resizable().frame(width: 30, height: 30)
-                        
-                        
-                    }.padding()
-                    Spacer()
-                }.padding(.top,40)
-                Spacer()
+             
+               
             }
-
+            Spacer(minLength: 30)
             VStack{
                 ZStack{
                     Color.black.opacity(0.5).cornerRadius(100)
@@ -72,7 +74,7 @@ struct HeartDetialsScreen: View {
                     .padding()
                     }.padding(.horizontal)
                
-                }.frame(width: 300, height: 100)
+                }.frame(width: 300, height: 100).padding(.top,30)
                 
                 
            
@@ -128,11 +130,39 @@ struct HeartDetialsScreen: View {
             
                 ZStack{
                     Color.black.opacity(0.5).cornerRadius(12)
-                    
-                }.padding(.top,58).frame(width: 300, height: 200)
+              
+                    VStack(alignment: .center){
+                        Text("Look after your heart - some things aren't worth the stress")
+                            .font(.system(size: 12)).fontWeight(.light)
+                            .foregroundColor(Color.white).padding(.horizontal)        .multilineTextAlignment(.center)
+                        HStack{
+                            Text("Heart Rate Variability: \(Int(hrv ?? 0))") // Display HRV in a text field
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color.white)
+                                            .fontWeight(.bold)
+                                            .padding(.leading).multilineTextAlignment(.leading)
+                            Spacer()
+                            Image("hrv")
+                                .resizable()
+                                .frame(width: 60, height: 60).padding(.trailing)
+                        }.padding(.leading,20)
+                        HStack{
+                            Text("Stress Level:      \(stressLevel.description)") // Display stress level in a text field
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color.white)
+                                            .fontWeight(.bold)
+                                            .padding(.leading).multilineTextAlignment(.leading)
+                            Spacer()
+                            Image("stress")
+                                .resizable()
+                                .frame(width: 60, height: 60).padding(.trailing)
+                        }.padding(.leading,20)
+                    }
+                }.padding(.top,58).frame(width: 300, height: 300)
                 
             }
             .onAppear {
+                loadHRVData()
                 manager.fetchHeartRateData { result, error in
                     if let heartRate = result {
                         self.heartRate = heartRate
@@ -146,9 +176,46 @@ struct HeartDetialsScreen: View {
         }
    
         .ignoresSafeArea()
+        .background(Color(#colorLiteral(red: 0.11764705882352941, green: 0.13725490196078433, blue: 0.1607843137254902, alpha: 1.0)))
     }
       //Funcs
+    private func loadHRVData() {
+            guard let hrvType = HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN) else {
+                return
+            }
+            
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+   
+
+            let lowThreshold: Double = 50.0
+            let mediumThreshold: Double = 70.0
+           
+        
+            let query = HKSampleQuery(sampleType: hrvType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { _, results, error in
+                guard let result = results?.first as? HKQuantitySample else {
+                    return
+                }
+                self.hrv = result.quantity.doubleValue(for: HKUnit(from: "ms"))
+                // Calculate stress level based on HRV data
+                if let hrvValue = self.hrv {
+                            if hrvValue < lowThreshold {
+                                self.stressLevel = .low
+                            } else if hrvValue < mediumThreshold {
+                                self.stressLevel = .medium
+                            } else {
+                                self.stressLevel = .high
+                            }
+                        }
+            }
+            
+            healthStore.execute(query)
+        }
     
+    private func calculateStressLevel(from hrv: Double) -> Double {
+        // Calculate stress level based on HRV data
+        // You can replace this with your own formula
+        return (hrv - 50) * 2 // Example formula (adjust as needed)
+    }
     
     private func loadHeartRateData() {
         // Request HealthKit authorization for heart rate data
@@ -203,6 +270,7 @@ struct HeartDetialsScreen: View {
 
 
 }
+
 struct HeartBarChartView: View {
     let selectedInterval: TimeIntervalOption
     let heartRateData: [HeartRateData] // Replace HeartRateData with your actual data structure
