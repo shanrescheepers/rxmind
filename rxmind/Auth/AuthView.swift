@@ -20,9 +20,16 @@ struct AuthView: View {
     var body: some View {
         
         NavigationView{
+            ZStack{
+                //        2nd VStack
+                Image("profile").resizable()
+                
+                VStack {
+                   
+             
             VStack{
                 Text(status)
-                    .foregroundColor(biometricAvailable ? .primary : .red)
+                    .foregroundColor(biometricAvailable ? .primary : .white)
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .padding(.top, 100)
@@ -44,7 +51,7 @@ struct AuthView: View {
                                 .buttonStyle(.bordered)
                             } else {
                                 Group{
-                                    Text("Authentication is disabled")
+                                    Text("Authentication is disabled").foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).font(.system(size: 20))
                                     
                                     NavigationLink("", destination: DashView(), isActive: $isAuthenticated)
                                         .opacity(0) // Make the link invisible
@@ -59,7 +66,9 @@ struct AuthView: View {
                 Spacer()
             }.onAppear(perform: checkPermission)
         }
-        
+            }
+            .ignoresSafeArea()
+        }
     }
     
     func checkPermission(){

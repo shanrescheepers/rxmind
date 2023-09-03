@@ -227,7 +227,7 @@ struct DashView: View {
                                                         .font(.title)
                                                 }
                                     
-                                }.frame(width: 200, height: 100).padding(.top,40)
+                                }.frame(width: 200, height: 100).padding(.top,40).padding(.horizontal)
                                 Text("Current BPM")
                                     .font(.system(size: 12)).fontWeight(.medium)
                                     .foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom).padding(.horizontal,10)

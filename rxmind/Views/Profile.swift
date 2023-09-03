@@ -4,17 +4,29 @@ struct Profile: View {
     @State private var isAuthenticationEnabled = UserDefaults.standard.bool(forKey: "isAuthenticationEnabled")
 
     var body: some View {
-        VStack {
-            Toggle("Enable Authentication", isOn: $isAuthenticationEnabled)
-                .padding()
-                .onChange(of: isAuthenticationEnabled, perform: { newValue in
-                    UserDefaults.standard.set(newValue, forKey: "isAuthenticationEnabled")
-                })
-
-            Spacer()
+        ZStack{
+            //        2nd VStack
+            Image("profile").resizable()
+     
+            VStack {
+                Text("Enable or Disable Face ID here").font(.system(size: 16)).fontWeight(.bold).lineSpacing(4).padding(10).foregroundColor(Color.black).padding(.bottom).padding(.horizontal,10)
+                
+                Toggle("Enable Authentication", isOn: $isAuthenticationEnabled)
+                    .padding().foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom).padding(.horizontal,10)
+                    .onChange(of: isAuthenticationEnabled, perform: { newValue in
+                        UserDefaults.standard.set(newValue, forKey: "isAuthenticationEnabled")
+                    })
+                Button("Reset Onboarding") {
+                    UserDefaults.standard.set(false, forKey: "onboarding")
+                }
+                
+                Spacer()
+            }.padding(.top,50)
+            .navigationBarTitle("Profile")
         }
-        .navigationBarTitle("Profile")
+        .ignoresSafeArea()
     }
+    
 }
 
 struct Profile_Previews: PreviewProvider {

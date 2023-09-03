@@ -4,7 +4,8 @@ struct ContentView: View {
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
     @State private var isSignUpActive = false
-    
+    @State private var isAuthenticationEnabled = UserDefaults.standard.bool(forKey: "isAuthenticationEnabled")
+
     var body: some View {
         ZStack{
             
@@ -20,11 +21,15 @@ struct ContentView: View {
                                 ZStack {
                             Spacer()
                                     if page == pages.last {
-                                        Button("Sign up!", action: { isSignUpActive = true })
-                                            .padding()
+                                        Button("Get reminded!", action: {
+                                            isSignUpActive = true
+                                            UserDefaults.standard.set(true, forKey: "onboarding")
+                                            
+                                        })
+                                        .padding(.top,-120)
                                     } else {
                                         Button("Next", action: incrementPage)
-                                            .padding().frame(height: 100, alignment: .bottomLeading)
+                                            .padding(.top,-120).frame(height: 100, alignment: .bottomLeading)
                                         Spacer()
                                     }
                                     Spacer()
@@ -36,10 +41,18 @@ struct ContentView: View {
                             }
                         }
                         .tag(page.tag)
+                        .background(Color(red: 0x2C / 255, green: 0x39 / 255, blue: 0x3A / 255))
+
                     }
                 }
                 .fullScreenCover(isPresented: $isSignUpActive) {
-                    SignUpView()
+                    if  isAuthenticationEnabled {
+                        AuthView()
+                        
+                    }else{
+                        DashView()
+                    }
+                    
                 }
             }
         }
