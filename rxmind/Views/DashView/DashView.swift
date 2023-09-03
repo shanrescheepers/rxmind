@@ -75,7 +75,7 @@ struct DashView: View {
                             }.padding(.top).frame(height: 200)
                         }
                         Spacer()
-                        
+                        Spacer(minLength: 20)
                         //STEPS
                         
                         ZStack (alignment: .leading){
@@ -189,8 +189,8 @@ struct DashView: View {
                         
                         
                         // STEPS
-                        
-                        
+                        Spacer(minLength: 20)
+//                        Spacer()
                         ZStack (alignment: .leading){
                             //              Time Picker Component here
                             
