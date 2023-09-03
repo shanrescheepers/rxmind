@@ -1,7 +1,7 @@
 
 ![Logo](https://github.com/shanrescheepers/rxmind/blob/master/rxmind_widget/Assets.xcassets/AppIcon.appiconset/widget.png )
 
-# rxmind - Your Personal Health Tracker
+# rxmind - My Own Personal Health Tracker
 
 ## Introduction
 
@@ -25,7 +25,7 @@
 ### Prerequisites
 
 - iOS device with HealthKit capabilities
-- [Download](#) the latest version of *xcode* from the App Store
+- [Download](#https://apps.apple.com/us/app/xcode/id497799835?mt=12) the latest version of *xcode* from the App Store
 
 ### Installation
 
