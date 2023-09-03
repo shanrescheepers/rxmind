@@ -5,6 +5,9 @@ struct SplashView: View {
     @State private var showDashView = false // Step 1: State variable
     
     @State private var isPresented = false // Added state variable for animation
+    
+
+    
     var body: some View {
         VStack {
             
@@ -80,8 +83,8 @@ struct SplashView: View {
             ZStack{
                 HStack{
 //                    ContentView()
-//                   DashView()
-                    StepsDetailsScreen()
+                   DashView()
+//                    StepsDetailsScreen()
                 }
             }
         }

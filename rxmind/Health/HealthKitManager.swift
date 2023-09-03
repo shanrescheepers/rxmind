@@ -18,6 +18,9 @@ class HealthKitManager: ObservableObject {
     
     @Published var activities: [Activity] = []
     
+    @State private var todaySteps: Int = 0
+    @State private var yesterdaySteps: Int = 0
+    
     init() {
 //        hier pull ek die stored local data, as ek dit link met my foon/ watch is dit real time
         if HKHealthStore.isHealthDataAvailable() {
@@ -187,5 +190,39 @@ class HealthKitManager: ObservableObject {
 
 
                                    /*used only for testing, prints heart rate info */
-  
+//  Get steps to display with filtering for watchos too
+    func fetchStepsData(completion: @escaping (Int, Int) -> Void) {
+        // Define the query to fetch today's steps
+        let calendar = Calendar.current
+        let todayStart = calendar.startOfDay(for: Date())
+        let todayEnd = calendar.date(byAdding: .day, value: 1, to: todayStart)!
+        let todayPredicate = HKQuery.predicateForSamples(withStart: todayStart, end: todayEnd, options: .strictStartDate)
+        let todayStepsQuery = HKSampleQuery(
+            sampleType: HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+            predicate: todayPredicate,
+            limit: HKObjectQueryNoLimit,
+            sortDescriptors: nil
+        ) { _, results, _ in
+            let todaySteps = results?.compactMap { $0 as? HKQuantitySample }.reduce(0) { $0 + Int($1.quantity.doubleValue(for: .count())) } ?? 0
+
+            // Define the query to fetch yesterday's steps
+            let yesterdayStart = calendar.date(byAdding: .day, value: -1, to: todayStart)!
+            let yesterdayEnd = todayStart
+            let yesterdayPredicate = HKQuery.predicateForSamples(withStart: yesterdayStart, end: yesterdayEnd, options: .strictStartDate)
+            let yesterdayStepsQuery = HKSampleQuery(
+                sampleType: HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+                predicate: yesterdayPredicate,
+                limit: HKObjectQueryNoLimit,
+                sortDescriptors: nil
+            ) { _, results, _ in
+                let yesterdaySteps = results?.compactMap { $0 as? HKQuantitySample }.reduce(0) { $0 + Int($1.quantity.doubleValue(for: .count())) } ?? 0
+
+                completion(todaySteps, yesterdaySteps)
+            }
+
+            self.healthStore.execute(yesterdayStepsQuery)
+        }
+
+        healthStore.execute(todayStepsQuery)
+    }
 }
