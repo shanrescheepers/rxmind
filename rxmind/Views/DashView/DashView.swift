@@ -8,6 +8,7 @@ struct DashView: View {
     
     @ObservedObject var manager:  HealthKitManager = HealthKitManager()
     
+    @State private var timer: Timer?
     
     @State private var isAnimating = true
     @State private var progress: Double = 0
@@ -49,19 +50,19 @@ struct DashView: View {
                     VStack {
                         
                         HStack{
+//                            Spacer()
+                            Image("rlogo").resizable().frame(width: 90, height: 20).padding(.top,20).padding(.horizontal)
                             Spacer()
-                            Image("rlogo").resizable().frame(width: 110, height: 30).padding(.top,20)
-                            Spacer()
-                            Image("menubar").resizable().frame(width: 30, height: 30)
+                            Image("menubar").resizable().frame(width: 30, height: 30).padding(.top,20).padding(.horizontal)
                             
                             
-                        }.padding()
+                        }.padding(.bottom,20).padding(.horizontal)
                         HStack(alignment: .top) {
                             //                        Text("Flex Goal").font(.title).fontWeight(.bold)
                             //                            .frame(width: 120).padding().foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
-                            Text(" \(formattedDate)")
+                            Text("` \(formattedDate)`")
                                 .font(.system(size: 14))
-                                .foregroundColor(.white) // Customize text color
+                                .foregroundColor(.white).padding(.horizontal) // Customize text color
                             Spacer()
                             // Add padding as needed
                             Spacer() // Pushes "Profile" to the
@@ -70,19 +71,19 @@ struct DashView: View {
                         // Add padding as needed
                         Spacer()
                         VStack{
-                            HStack(alignment: .top){
-                                Text("It's a matter of time and effort. It all depends on you. Success and failure. Keep track of your mental and body state. ").font(.system(size: 14)).fontWeight(.medium).lineSpacing(4)
-                                    .frame(width: 340, height: 100, alignment: .leading ).foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
+                            HStack(alignment: .center){
+                                Text("It's a matter of your time and fucking effort. It all depends on you. Successes and failures. Keep priority & track of your mental and body state. ").font(.system(size: 14)).fontWeight(.medium).lineSpacing(4).padding(.leading,70).multilineTextAlignment(SwiftUI.TextAlignment.center)
+                                    .frame(width: 340, height: 100, alignment: .center ).foregroundColor(Color(#colorLiteral(red: 0.850980401, green: 0.850980401, blue: 0.850980401, alpha: 1))) // Set the text color
                                 Spacer()
-                                Spacer()
+//                                Spacer()
                             } // Add padding as needed
                             Spacer()
                             HStack{
                                 TimePickerView().foregroundColor(.white).accentColor(.white)
-                            }.padding(.top).frame(height: 200)
+                            }.padding(.top,20).frame(height: 200)
                         }
                         Spacer()
-                        Spacer(minLength: 20)
+                        Spacer(minLength: 10)
                         //STEPS
                         
                         ZStack (alignment: .leading){
@@ -115,7 +116,7 @@ struct DashView: View {
                                 ZStack{
                                     Circle()
                                         .stroke(Color.gray.opacity(0.3), lineWidth: 20)
-                                        .frame(width: 80, height: 80)
+                                        .frame(width: 60, height: 60)
                                         .padding(.leading)
                                     
                                     Circle()
@@ -123,21 +124,24 @@ struct DashView: View {
                                         .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                                         .foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1)))
                                         .rotationEffect(Angle(degrees: 270.0))
-                                        .frame(width: 80, height: 80)
+                                        .frame(width: 60, height: 60)
                                         .padding(.leading)
                                         .animation(.easeIn(duration: 3.5))
                                         .onAppear {
-                                            
+                                            startTimer()
                                             // Fetch HealthKit data when the view appears
                                             fetchHealthData()
                                         }
                                     Text("\(Int(progress))")
                                         .font(.system(size: 16)).foregroundColor(Color.white)
                                         .fontWeight(.bold).padding(.leading)
-                                }.frame(width: 200, height: 100).padding(.top,40)
+                                }.frame(width: 200, height: 100).padding(.top,50)
+                                Text("Daily average Steps")
+                                    .font(.system(size: 12)).fontWeight(.medium)
+                                    .foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom,15).padding(.leading).padding(.top,-5)
                             }
                             
-                            // Bottom stack with image, two buttons, and aligned right
+                    
                             VStack {
                                 HStack {
                                     Spacer()
@@ -165,11 +169,8 @@ struct DashView: View {
                                         
                                         Button("Details") {
                                             isDetailViewActive = true // Activate navigation
-                                        }
-                                        Text("Daily average Steps")
-                                            .font(.system(size: 12)).fontWeight(.light)
-                                            .foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))).padding(.top,20)
-                                        //                                        Spacer()
+                                        }.padding(.top,15)
+                                
                                     }
                                     
                                 }
@@ -177,16 +178,7 @@ struct DashView: View {
                             }
                             NavigationLink("", destination: StepsDetailsScreen(), isActive: $isDetailViewActive)
                                 .opacity(0) // Make the link invisible
-                        
-                        //                            .fullScreenCover(isPresented: $isDetailViewActive) {
-                        //                                // Present the SignUpView as a full screen cover
-                        //                                StepsDetailsScreen()
-                        //
-                        //                                    .navigationBarHidden(false)
-                        //
-                        //                                    .navigationBarBackButtonHidden(false)
-                        //                            }
-                    
+              
                         }.frame(width: 350, height: 160).padding(.vertical,10)
                         
                         
@@ -221,7 +213,11 @@ struct DashView: View {
                                                     Text("Fetching heart rate...")
                                                         .font(.title)
                                                 }
+                                    
                                 }.frame(width: 200, height: 100).padding(.top,40)
+                                Text("Current BPM")
+                                    .font(.system(size: 12)).fontWeight(.medium)
+                                    .foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).padding(.bottom).padding(.horizontal,10)
                             }
                             // Bottom stack with image, two buttons, and aligned right
                             VStack {
@@ -232,10 +228,8 @@ struct DashView: View {
                                         Spacer(minLength: 40)
                                         Button("Details") {
                                             isHeartDetailViewActive = true // Activate navigation
-                                        }
-                                        Text("Average BPM")
-                                            .font(.system(size: 12)).fontWeight(.light)
-                                            .foregroundColor(Color(.sRGB, red: 0xCC / 255, green: 0x3A / 255, blue: 0x5D / 255, opacity: 1.0)).padding(.top,20)
+                                        }.padding(.horizontal)
+                                      
                                     }
                                 }
                                 .padding()
@@ -243,7 +237,7 @@ struct DashView: View {
                             NavigationLink("", destination: HeartDetialsScreen(), isActive: $isHeartDetailViewActive)
                                 .opacity(0) // Make the link invisible
                         }.frame(width: 350, height: 160).padding(.vertical,10)
-                    }// Add padding as needed
+                    }// Add padding
                     Spacer()
                 }
                 .onAppear {
@@ -312,7 +306,14 @@ struct DashView: View {
             return dateFormatter.string(from: currentDate)
         }
         
-    
+    func startTimer() {
+        
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                // This closure also runs every second
+                fetchHealthData()
+               // Run your function here
+            }
+        }
      
 
     }

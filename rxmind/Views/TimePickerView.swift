@@ -4,7 +4,7 @@ struct TimePickerView: View {
     @State private var selectedDate = Date()
     @State private var timeRemaining: TimeInterval = 0
     @StateObject private var timerManager: TimerManager = TimerManager(updateInterval: 1)
-    
+    @State private var timer: Timer?
     init() {
         // Retrieve the previously stored goal date, if available
         if let storedDate = UserDefaults.standard.object(forKey: "goalDate") as? Date {
@@ -18,20 +18,20 @@ struct TimePickerView: View {
     var body: some View {
         ZStack{
           
-            Color.black.opacity(0.5).cornerRadius(12) // Adjust opacity as needed
+            Color.black.opacity(0.5).cornerRadius(12)
             VStack{
-                HStack{
+                HStack(alignment: .firstTextBaseline){
                     
-                    Text("SET PERSONAL GOAL TIME").fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center ).padding(.horizontal).padding(.bottom,10).foregroundColor(Color(.sRGB, red: 0x5E / 255.0, green: 0x71 / 255.0, blue: 0x77 / 255.0))
+                    Text("End goal time").font(.system(size: 14)).fontWeight(.black).frame(maxWidth: .infinity, alignment: .center ).padding().padding(.top,-20).foregroundColor(Color(red: 0.4117647059, green: 0.5294117647, blue: 0.537254902, opacity: 1.0)).lineSpacing(30).multilineTextAlignment(SwiftUI.TextAlignment.leading)
                     
                 }.padding(12)
                 Spacer()
             }
             RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.black)
-                            .opacity(0.5) // Adjust opacity as needed
+                .fill(Color(red: 0.1725490196, green: 0.2235294118, blue: 0.2274509804, opacity: 1.0))
+                            .opacity(0.6) // Adjust opacity as needed
                             .frame(width: 300, height: 120).padding(.top,10)
-                            .overlay(
+//                            .overlay(
                                 
                                 VStack {
                                   
@@ -40,21 +40,26 @@ struct TimePickerView: View {
                            
                                     VStack{
                                         HStack{
-                                            Text("Time until goal reached ").font(.system(size: 14)).fontWeight(.bold)
-                                                .frame(width: 400).foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))) // Set the text color
+                                            Text("Time until goal reached ").font(.system(size: 12)).fontWeight(.thin)
+                                                .frame(width: 400).foregroundColor(Color.white) // Set the text color
                                    
                                         }.padding(.top, 2)
                            
                                         HStack{
-                                            Text("\(formattedTimeRemaining)")
+                                            Text("\(formattedTimeRemaining)").font(.system(size: 17)).fontWeight(.bold)
+                                                .frame(width: 400).foregroundColor(Color.white)
                                         }.padding(.all, 2)
                                     }
                                 }
-                            )
+//                            )
         }
         .onAppear {
             // Start the timer when the view appears
             timerManager.startTimer(updateAction: updateTimeRemaining)
+                
+          
+      
+                            
         }
         .onDisappear {
             // Stop the timer when the view disappears to avoid leaks
@@ -68,9 +73,14 @@ struct TimePickerView: View {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.day, .hour, .minute, .second]
         formatter.unitsStyle = .abbreviated
-        return formatter.string(from: timeRemaining) ?? ""
+        if (formatter.string(from: timeRemaining) == "0s"){
+            return "Fuck yeah! You did it!"
+        }else{
+            return formatter.string(from: timeRemaining) ?? ""
+        }
+        
     }
-
+ 
     private func updateTimeRemaining() {
         let currentDate = Date()
         if selectedDate > currentDate {
