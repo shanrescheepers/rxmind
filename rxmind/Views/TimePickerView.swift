@@ -22,15 +22,15 @@ struct TimePickerView: View {
             VStack{
                 HStack{
                     
-                    Text("Set your goal date below").frame(maxWidth: .infinity, alignment: .leading ).padding(.horizontal).foregroundColor(Color(.sRGB, red: 0x5E / 255.0, green: 0x71 / 255.0, blue: 0x77 / 255.0))
+                    Text("SET PERSONAL GOAL TIME").fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center ).padding(.horizontal).padding(.bottom,10).foregroundColor(Color(.sRGB, red: 0x5E / 255.0, green: 0x71 / 255.0, blue: 0x77 / 255.0))
                     
                 }.padding(12)
                 Spacer()
             }
             RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray)
-                            .opacity(0.1) // Adjust opacity as needed
-                            .frame(width: 300, height: 130)
+                            .fill(Color.black)
+                            .opacity(0.5) // Adjust opacity as needed
+                            .frame(width: 300, height: 120).padding(.top,10)
                             .overlay(
                                 
                                 VStack {
@@ -40,7 +40,7 @@ struct TimePickerView: View {
                            
                                     VStack{
                                         HStack{
-                                            Text("Time until goal reached ") .font(.title3).fontWeight(.bold)
+                                            Text("Time until goal reached ").font(.system(size: 14)).fontWeight(.bold)
                                                 .frame(width: 400).foregroundColor(Color(#colorLiteral(red: 0.3568627536, green: 0.2274509817, blue: 0.850980401, alpha: 1))) // Set the text color
                                    
                                         }.padding(.top, 2)

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04042C102AA39A3D009954DA /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C0F2AA39A3D009954DA /* TimePickerView.swift */; };
+		04042C122AA3CD99009954DA /* StepsDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C112AA3CD99009954DA /* StepsDetailsScreen.swift */; };
+		04042C142AA3D8B4009954DA /* HeartDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04042C132AA3D8B4009954DA /* HeartDetailsScreen.swift */; };
 		04F6DE9D2A80474100AAA958 /* OnboardingScreensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */; };
 		04F6DEA22A80482200AAA958 /* OnboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA12A80482200AAA958 /* OnboardModel.swift */; };
 		04F6DEA42A8049F200AAA958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DEA32A8049F200AAA958 /* ContentView.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		04042C0F2AA39A3D009954DA /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		04042C112AA3CD99009954DA /* StepsDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsDetailsScreen.swift; sourceTree = "<group>"; };
+		04042C132AA3D8B4009954DA /* HeartDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartDetailsScreen.swift; sourceTree = "<group>"; };
 		04F6DE9C2A80474100AAA958 /* OnboardingScreensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreensView.swift; sourceTree = "<group>"; };
 		04F6DEA12A80482200AAA958 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
 		04F6DEA32A8049F200AAA958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -150,6 +154,8 @@
 				28B811C826C4471E0CAE2F76 /* DashView */,
 				04F6DEA32A8049F200AAA958 /* ContentView.swift */,
 				04042C0F2AA39A3D009954DA /* TimePickerView.swift */,
+				04042C112AA3CD99009954DA /* StepsDetailsScreen.swift */,
+				04042C132AA3D8B4009954DA /* HeartDetailsScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,12 +433,14 @@
 				E437F8C8D61AA6BAF4F62C4F /* ColorConstants.swift in Sources */,
 				F6EC352EE584B94B9CD70907 /* FontScheme.swift in Sources */,
 				16CDAD474994870FC8FE3E46 /* SplashView.swift in Sources */,
+				04042C142AA3D8B4009954DA /* HeartDetailsScreen.swift in Sources */,
 				576DBA1F3B4E161641314940 /* OnboardOneView.swift in Sources */,
 				B780C2CC62E127FD20C8ED07 /* OnboardTwoView.swift in Sources */,
 				3471D1AC97954CBED1F851BC /* OnboardThreeView.swift in Sources */,
 				E41AA2DF71DBF6A1DBCB6226 /* LoginView.swift in Sources */,
 				04F6DEAE2A8439F400AAA958 /* Activity.swift in Sources */,
 				16A9C035A858B568623306C6 /* SignUpView.swift in Sources */,
+				04042C122AA3CD99009954DA /* StepsDetailsScreen.swift in Sources */,
 				44C2F9DE96476B00269FF1F1 /* DashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

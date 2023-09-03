@@ -80,7 +80,8 @@ struct SplashView: View {
             ZStack{
                 HStack{
 //                    ContentView()
-                   DashView()
+//                   DashView()
+                    StepsDetailsScreen()
                 }
             }
         }
